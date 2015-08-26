@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Pluto-nic/plzHelp.me/issues"
   },
-  "homepage": "https://github.com/Pluto-nic/plzHelp.me#readme"
+  "homepage": "https://github.com/Pluto-nic/plzHelp.me#readme",
+  "dependencies": {
+    "nodemon": "^1.4.1"
+  }
 }
