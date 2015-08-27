@@ -6,8 +6,8 @@ var favicon = require('serve-favicon');
 var app = express();
 
 // view engine setup - Derek we will use this if we end up using an ejs file to be served from server
-// app.set('views', path.join(__dirname, 'views')); 
-// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); 
+app.set('view engine', 'ejs');
 
 
 app.use(express.static(__dirname + "/../public"));

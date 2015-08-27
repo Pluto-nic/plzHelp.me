@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Pluto-nic/plzHelp.me#readme",
   "dependencies": {
     "angular": "^1.4.4",
+    "angular-ui-router": "^0.2.15",
     "compass": "^0.1.1",
     "express": "^4.13.3",
     "grunt": "^0.4.5",
