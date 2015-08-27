@@ -17,6 +17,13 @@
   },
   "homepage": "https://github.com/Pluto-nic/plzHelp.me#readme",
   "dependencies": {
-    "nodemon": "^1.4.1"
+    "angular": "^1.4.4",
+    "compass": "^0.1.1",
+    "express": "^4.13.3",
+    "grunt": "^0.4.5",
+    "gulp": "^3.9.0",
+    "mysql": "^2.9.0",
+    "nodemon": "^1.4.1",
+    "sequelize": "^3.6.0"
   }
 }
