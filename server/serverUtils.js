@@ -1,10 +1,11 @@
 //require sequelize models
-/**
 var models = require('./db/orm-model.js');
 var models = models();
-var User = models.User;
-var Activity = models.Activity;
+var ServiceProvider = models.ServiceProvider;
+var Client = models.Client;
+var Project = models.Project;
 var sequelize = require('./db/database.js');
+/**
 
 module.exports = {
   upsertUser : function(req, res) {

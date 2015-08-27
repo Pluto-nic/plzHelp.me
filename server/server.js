@@ -1,4 +1,5 @@
 var app = require('./server-config.js');
+var database = require('./db/orm-model.js');
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'));

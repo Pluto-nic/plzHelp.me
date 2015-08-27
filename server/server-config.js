@@ -14,5 +14,14 @@ app.use(bodyParser.json());
 
 //Insert or update user information in database
 // app.post('/test', serverUtils.testFunc);
-
+/***
+  get all open projs
+  get all close projs
+  add servProvID to open proj
+  close proj (set from active from true to false)
+  get open projs for specific user
+  get closed projs for specific user
+  get open projs for specific servProv
+  get closed projs for specific servProv
+***/
 module.exports = app;

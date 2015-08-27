@@ -1,77 +1,72 @@
 // 'use strict';
-var app = require('./server-config.js');
-
-
+var app = require('./../server-config.js');
 var db = require('./database');
 var Sequelize = require('sequelize');
 
+// module.exports = function(){
+//   var Model = db.define('Model', {
+//     attr: { type:Sequelize.TYPE,
+//       unique:true or false,
+//       notEmpty:
+
+//     },
+//     secondAttr: Sequelize.STRING
+
+//   });
+//   var SecondModel;
+
+//   db.sync();
+//   return {Model:Model};
+// };
+
 module.exports = function(){
-  var Model = db.define('Models', {
-    attr: { type:Sequelize.TYPE,
-      unique:true or false,
-      notEmpty:
-
-    },
-    secondAttr: Sequelize.STRIG
-
+  var ServiceProvider = db.define('ServiceProvider', {
+    businessName: Sequelize.STRING,
+    address: Sequelize.STRING,
+    phone: Sequelize.STRING,
+    email: Sequelize.STRING,
+    password: Sequelize.STRING
   });
-  var SecondModel
+  var Client = db.define('Client',{
+    firstName: Sequelize.STRING,
+    lastName: Sequelize.STRING,
+    email: Sequelize.STRING,
+    password: Sequelize.STRING,
+    zipcode: Sequelize.INTEGER,
+    gravatar: Sequelize.STRING,
+    phone: Sequelize.STRING
+  });
+  var Project = db.define('Project', {
+    description: Sequelize.STRING, // Sequelize.TEXT for huge text files
+    date: Sequelize.STRING,
+    address: Sequelize.STRING,
+    name: Sequelize.STRING,
+    phone: Sequelize.STRING,
+    time: Sequelize.STRING,
+    category: Sequelize.STRING,
+    active: Sequelize.BOOLEAN
+  });
+
+  Project.belongsTo(Client);
+  ServiceProvider.hasMany(Project);
+
+  db.sync();
+  return {ServiceProvider:ServiceProvider, Client:Client, Project:Project};
 };
 
+/****
+serviceProviderTable - (business name, address, phone, email, password)
+clientTable - (firstName, lastName, email, password, zipcode, gravatar, phone)
+projectTable - (description, date, address, name, phone number, time )
+clientProviderProjectTable - (completedFlag, clientId, providerId)
+***/
+//We don't need create a join table when we're using an ORM 
+//Use a method to set relationships
+// Activity.belongsToMany(User, {through: 'UserActivity'});
+// User.belongsToMany(Activity, {through: 'UserActivity'});
 
 
 
 /*****
-'use strict';
-var db = require('./database');
-var Sequelize = require('sequelize');
-
-module.exports = function(){
-  //create user table
-  var User = db.define('Users', {
-      userId: {type: Sequelize.STRING,
-      unique: true, 
-      notEmpty: true, 
-      notNull: true,
-      primaryKey: true
-    }, 
-    email: Sequelize.STRING,
-    picture: Sequelize.STRING,
-    name: Sequelize.STRING,
-    nickname: Sequelize.STRING
-  });
-
-  var Activity = db.define('Activity', {
-    title: {
-      type: Sequelize.STRING,
-      notEmpty: true,
-      notNull: true
-    },
-    description: {
-      type: Sequelize.STRING,
-      notEmpty: true,
-      notNull: true
-    },
-    location: {
-      type: Sequelize.STRING
-    },
-    keywords: {
-      type: Sequelize.STRING
-    },
-    active: {
-      type: Sequelize.BOOLEAN
-    }
-    //sequelize automatically makes createdAt and updatedAt columns
-  });
-
-  // We don't need create a join table when we're using an ORM 
-  // Use a method to set relationships
-  Activity.belongsToMany(User, {through: 'UserActivity'});
-  User.belongsToMany(Activity, {through: 'UserActivity'});
-
   Activity.belongsTo(User, {as:'ownerId'});
-
-  db.sync();
-  return {User:User, Activity: Activity};
-};
 *****/
