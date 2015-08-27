@@ -2,7 +2,7 @@
   "name": "plzhelp.me",
   "version": "0.0.1",
   "description": "An app to link general contractors to customers.",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/Pluto-nic/plzHelp.me/issues"
   },
-  "homepage": "https://github.com/Pluto-nic/plzHelp.me#readme"
+  "homepage": "https://github.com/Pluto-nic/plzHelp.me#readme",
+  "dependencies": {
+    "angular": "^1.4.4",
+    "compass": "^0.1.1",
+    "express": "^4.13.3",
+    "grunt": "^0.4.5",
+    "gulp": "^3.9.0",
+    "mysql": "^2.9.0",
+    "nodemon": "^1.4.1",
+    "path": "^0.11.14",
+    "path-parse": "^1.0.5",
+    "sequelize": "^3.6.0",
+    "serve-favicon": "^2.3.0"
+  }
 }
