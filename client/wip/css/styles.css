@@ -285,6 +285,14 @@ blockquote:before {
 .btn > .im {
   margin: 0 5px;
 }
+
+
+.list-group-item active {
+  background: #ed8323;
+  border-color: #e27513;
+}
+
+
 .btn-primary {
   background: #ed8323;
   border-color: #e27513;
