@@ -1,13 +1,10 @@
 var app  = require('../../server/server.js');
-
-// Peter - uncomment as per your needs
-
-// var chai = require("chai");
-// var sinon = require("sinon");
-// var sinonChai = require("sinon-chai");
-// var request  = require("supertest");
-// var expect = chai.expect;
-// chai.use(sinonChai);
+var chai = require("chai");
+var sinon = require("sinon");
+var sinonChai = require("sinon-chai");
+var request  = require("supertest");
+var expect = chai.expect;
+chai.use(sinonChai);
 
 
 describe("Server", function() {
@@ -16,3 +13,4 @@ describe("Server", function() {
     request(app).get('/').expect(200, done);
   });
 // More tests here
+});
