@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/Pluto-nic/plzHelp.me#readme",
   "dependencies": {
-<<<<<<< HEAD
     "angular": "^1.4.4",
     "chai": "^3.2.0",
     "compass": "^0.1.1",
@@ -43,13 +42,11 @@
   "devDependencies": {
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-watch": "^0.6.1",
-    "supertest": "^1.1.0"
-=======
+    "supertest": "^1.1.0",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "mysql": "^2.4.2",
     "sequelize": "~3.4.1",
     "nodemon": "^1.4.1"
->>>>>>> 86690bf975a3e09bbf0febf89037984f8b215535
   }
 }
