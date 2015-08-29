@@ -15,7 +15,6 @@ app.use('/', express.static("./client"));
 //app.use(favicon(__dirname + '/../client/favicon.ico'));
 
 // YOUR CODE HERE DEREK
-<<<<<<< HEAD
 var app = require('./server-config.js');
 var database = require('./db/orm-model.js');
 
@@ -27,7 +26,6 @@ console.log('Server listening on port ', app.get('port'));
 // var mysql = require('mysql');
 // var Sequelize = require('sequelize');
 // var sequelize = new Sequelize('chat', 'root', null, {define: {timestamps:false}});
-=======
 
 //app.get('/*', function(req, res){
 //  res.render('client/index.html');
@@ -36,4 +34,3 @@ console.log('Server listening on port ', app.get('port'));
 app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'));
 console.log("App listening on port");
->>>>>>> 9aa10af38fcec8bc6b431566ebcf543e29c1217b
