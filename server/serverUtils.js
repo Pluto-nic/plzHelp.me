@@ -5,6 +5,146 @@ var ServiceProvider = models.ServiceProvider;
 var Client = models.Client;
 var Project = models.Project;
 var sequelize = require('./db/database.js');
+
+module.exports = {
+  // getProject: function(req, res, bool){
+  //   Project.findAll({
+  //     where:{
+  //       active: bool
+  //     }
+  //   }).then(function(projects){
+  //     console.log(projects);
+  //     res.json(projects)
+  //   });
+  // },
+
+  // postProject: function(req, res){
+  //   Project.build({
+  //     description: req.description,
+  //     date: req.date,
+  //     address: req.address,
+  //     name: req.name,
+  //     phone: req.phone,
+  //     time: req.time,
+  //     category: req.category,
+  //     active: req.active
+  //   })
+  //   .save()
+  //   .error(function(err){
+  //     console.log('ERROR POSTING PROJECT: ', err);
+  //   })
+  //   .success(function(){
+  //     console.log('Successfully posted project')
+  //     res.end(); //NOT SURE
+  //   });
+  // },
+
+  // closeProject: function(req, res){
+  //   Project.update({
+  //     active: false
+  //   },
+  //   {
+  //     where:{
+  //       //attributes to link project to database
+  //     }
+  //   })
+  //   .success(function(){
+  //     console.log('project successfully closed');
+  //     res.end();
+  //   })
+  //   .error(function(err){
+  //     console.log('ERR closing project ', err)
+  //   });
+  // },
+
+  //getClientProject: function(req, res, bool){
+  //  Project.findAll({
+  //    where:{
+  //      active: bool
+  //      //property that links client to project
+  //    }
+  //  }).then(function(clientProjects){
+  //    console.log(clientProjects);
+  //    res.json(clientProjects)
+  //  });
+  //},
+
+  //getProviderProject: function(req, res, bool){
+  //  Project.findAll({
+  //    where:{
+  //      active: bool
+  //      //property that links provider to project
+  //    }
+  //  }).then(function(providerProjects){
+  //    console.log(providerProjects);
+  //    res.json(providerProjects)
+  //  });
+  //},
+
+  // addClient: function(req, res){
+  //   Client.build({
+  //     firstName: req.firstName,
+  //     lastName: req.lastName,
+  //     email: req.email,
+  //     password: req.password,
+  //     zipcode: req.zipcode,
+  //     gravatar: req.gravatar,
+  //     phone: req.phone
+  //   })
+  //   .save()
+  // },
+  //model = Client, Project, or ServiceProvider
+  //conditions = {} that would goto where
+  getAll: function(req, res, model, conditions){
+    model.findAll({
+      where: conditions
+    })
+    .then(function(resultOfFind){
+      console.log(resultOfFind);
+      res.json(resultOfFind)
+    });
+  },
+
+  getOne: function(req, res, model, conditions){
+    model.findOne({
+      where: conditions
+    })
+    .then(function(resultOfFind){
+      console.log(resultOfFind);
+      res.json(resultOfFind)
+    });
+  },
+
+  createInstance: function(req, res, model, attributes){
+    model.build(attributes)
+    .save()
+    .then(function(anotherModel){
+      console.log('Successfully Created instance', anotherModel);
+      res.end(); //NOT SURE
+    })
+    .catch(function(err){
+      console.log('ERROR CREATING INSTANCE: ', err);
+    });
+  },
+
+  updateInstance: function(req, res, model, updateValues, conditions){
+    model.update(updateValues, {where:conditions})
+    .then(function(){
+      console.log('successfully updated values in DB');
+      res.end();
+    })
+    .error(function(err){
+      console.log('ERR updating values: ', err)
+    });
+  }
+
+};
+
+
+
+
+
+
 /**
 
 module.exports = {
