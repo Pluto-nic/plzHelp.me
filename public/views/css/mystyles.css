@@ -1,0 +1,12 @@
+<<<<<<< HEAD:client/views/css/mystyles.css
+/*YOUR CUSTOM STYLES*/
+
+=======
+/*YOUR CUSTOM STYLES*/
+#mainScrollable{
+    height: 640px;
+    float: left;
+    overflow: auto;
+    overflow-x:hidden;
+}
+>>>>>>> b2c8987c535235431687583db26eb0a59c27dd68:client/wip/css/mystyles.css
