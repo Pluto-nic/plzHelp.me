@@ -1,64 +1,17 @@
-
+<!-- Photo/Name: Need to change this based on user information -->
 <div class="user-profile-avatar text-center">
+    <div class="gap"></div>
     <img src="img/syed.jpg" alt="Image Alternative text" title="AMaze" />
     <h5>Syed Jafri</h5>
     <p>Member Since May 2012</p>
 </div>
-<!-- <ul class="list user-profile-nav">
-    <li ng-repeat="item in Model.items">
-       <a ui-sref="index.list.detail({category:$stateParams.category, id: $index})">{{item}}</a>
-    </li>
 
-        <li ui-sref-active="active"><a ui-sref="index.list.{{item.state}}"><i class="fa {{item.logo}}"></i>{{item.title}}</a>
-        </li>
-
-
-</ul> -->
-
+<!--Loads sidebar options from listController.js-->
 <ul class="list user-profile-nav">
     <li ng-repeat="item in Model.items">
         <a ui-sref="index.list.{{item.state}}"><i class="fa {{item.logo}}"></i>{{item.title}}</a>
     </li>
 </ul>
-
-<!-- <ul class="list user-profile-nav">
-    
-    <li ui-sref-active="active"><a ui-sref="index.list.overview"><i class="fa fa-user"></i>Overview</a>
-    </li>
-    <li ui-sref-active="active"><a ui-sref="index.list.settings"><i class="fa fa-cog"></i>Settings</a>
-    </li>
-    <li ui-sref-active="active"><a ui-sref="index.list.history"><i class="fa fa-clock-o"></i>Project History</a>
-    </li>
-    <li ui-sref-active="active"><a ui-sref="index.list.cards"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
-    </li>
-    <li ui-sref-active="active"><a ui-sref="index.list.wishList"><i class="fa fa-heart-o"></i>Projects Wishlist</a>
-    </li>
-</ul> -->
-<!-- 
-BKUP Code
-
-
-                <div class="user-profile-avatar text-center">
-                    <img src="img/syed.jpg" alt="Image Alternative text" title="AMaze" />
-                    <h5>Syed Jafri</h5>
-                    <p>Member Since May 2012</p>
-                </div>
-                <ul class="list user-profile-nav">
-                    
-                    <li ui-sref-active="active"><a ui-sref="index.list.detail.overview"><i class="fa fa-user"></i>Overview</a>
-                    </li>
-                    <li ui-sref-active="active"><a ui-sref="index.list.detail.settings"><i class="fa fa-cog"></i>Settings</a>
-                    </li>
-                    <li ui-sref-active="active"><a ui-sref="index.list.detail.history"><i class="fa fa-clock-o"></i>Project History</a>
-                    </li>
-                    <li ui-sref-active="active"><a ui-sref="index.list.detail.cards"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
-                    </li>
-                    <li ui-sref-active="active"><a ui-sref="index.list.detail.wishList"><i class="fa fa-heart-o"></i>Projects Wishlist</a>
-                    </li>
-                </ul>
- -->
-
-
 
 
 

@@ -3,5 +3,4 @@ angular.module('app')
     $scope.Model = {
       categories : ["Client", "Contractor"],
     }
-    $scope.Title = "Client Profile"
 }]);

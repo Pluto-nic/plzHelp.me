@@ -15,9 +15,10 @@ angular
                 templateUrl: 'member.html',
                 controller: 'MembersCtrl'
               },
-              'top@index' : { templateUrl: './partials/header.html',},
-              'left@index' : { templateUrl: './partials/left.html',},
-              'main@index' : { templateUrl: './partials/main.html',},
+              'top@index' : { templateUrl: './partials/header.html'},
+              'left@index' : { templateUrl: './partials/left.html'},
+              'main@index' : { templateUrl: './partials/main.html'},
+              'bottom@index': { templateUrl: './partials/footer.html'},
             },
           })
         .state('index.list', {
@@ -27,7 +28,6 @@ angular
           })
         .state('index.list.overview', {
           url: '/profile',
-          mytitle: "Syed_Overview",
           views: {
             'detail@index': {
               templateUrl: './partials/user-profile.html',
@@ -35,9 +35,17 @@ angular
             }
           }
         })
+        .state('index.list.post', {
+          url: '/settings',
+          views: {
+            'detail@index': {
+              templateUrl: './partials/user-post-project.html',
+              //controller: 'PostCtrl' //Placeholder
+            }
+          }
+        })
         .state('index.list.settings', {
           url: '/settings',
-          mytitle: "Syed_Settings",
           views: {
             'detail@index': {
               templateUrl: './partials/user-profile-settings.html',
