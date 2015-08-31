@@ -19,7 +19,7 @@ angular.module('app')
     {logo: "fa-credit-card", title: "Cont-Credit/Debit Cards", state: "cards"},
     {logo: "fa-heart-o", title: "Cont-Projects Wishlist", state: "wishList"},
   ];
-
+  
   $scope.Model.items = $stateParams.category === "Client" ? clientOptions : contractorOption;
   $scope.$on("$destroy", function() {delete $scope.Model.items; })
 }]);

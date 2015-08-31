@@ -3,4 +3,5 @@ angular.module('app')
     $scope.Model = {
       categories : ["Client", "Contractor"],
     }
+    
 }]);
