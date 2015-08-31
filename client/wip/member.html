@@ -12,20 +12,18 @@
     <!-- Two Middle Sections: will include sidebar and page contents -->
         <section>
             <a ui-sref="index.list.post">
-                <button type="button" class="btn btn-primary" style="float: right;">Post New Project</button>
+                <button type="button" class="btn btn-primary" style="float: right;" ng-hide="$state.current.name==='index.list.post'">Post New Project</button>
             </a>
             <div class="row">
                 <div class="col-md-3">
-                    <div class="gap"></div>
+                    <div class="gap-small"></div>
                     <aside class="user-profile-sidebar">
                         <div ui-view="left"></div>
                     </aside>
                 </div>
-                
-                    <div class="col-md-9">
-                        <div ui-view="main" id="mainScrollable"></div>        
+                    <div class="col-md-9" id="mainScrollable">
+                        <div ui-view="main"></div>        
                     </div>
-                
             </div>
         </section>
         <!-- Bottom Section: will include footer -->
