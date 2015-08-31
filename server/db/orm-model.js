@@ -44,7 +44,7 @@ module.exports = function(){
     phone: Sequelize.STRING,
     time: Sequelize.STRING,
     category: Sequelize.STRING,
-    active: Sequelize.BOOLEAN
+    isActive: Sequelize.BOOLEAN
   });
 
   Project.belongsTo(Client);
