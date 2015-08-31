@@ -16,6 +16,6 @@ var mysql = require('mysql');
 //   console.log('Connection established');
 // });
 
-var sequelize = new Sequelize(process.env.MYSQL || 'mysql://root@localhost:3306/heroku_91dcc327f5a9f3b');
+var sequelize = new Sequelize('mysql://b3c7e43b293c24:5f153d7f@us-cdbr-iron-east-02.cleardb.net/heroku_91dcc327f5a9f3b?reconnect=true');
 
 module.exports = sequelize;
