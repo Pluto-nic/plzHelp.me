@@ -1,2 +1,7 @@
 /*YOUR CUSTOM STYLES*/
-
+#mainScrollable{
+    height: 640px;
+    float: left;
+    overflow: auto;
+    overflow-x:hidden;
+}

@@ -78,4 +78,3 @@ angular
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 }])
-
