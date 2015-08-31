@@ -1,0 +1,56 @@
+
+    <div class="global-wrap">
+
+        <header id="main-header">
+            <div ui-view="top"></div>
+        </header>
+
+        <div class="container">
+            <h1 class="page-title">{{mytitle}}</h1>
+            <a href="user-post-project.html">
+                <button type="button" class="btn btn-primary" style="float: right;">Post New Project</button>
+            </a>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <aside class="user-profile-sidebar">
+                        <div ui-view="left"></div>
+                    </aside>
+                </div>
+                <div class="col-md-9">
+                    <div ui-view="main"></div>        
+                </div>
+            </div>
+        <footer id="main-footer">
+            <div ui-view="bottom"></div>
+        </footer>
+    </div> 
+
+
+
+<!-- OLD WORKING LAYOUT
+<body ng-app="app">
+    <div class="global-wrap">
+
+        <header id="main-header" ng-include="'/partials/header.html'"></header>
+        <div class="container">
+           <h1 class="page-title">{{pageTitle}}</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <aside class="user-profile-sidebar">
+                    <div ng-include="'/partials/sidebar.html'"></div>
+                    </aside>
+                </div>
+                <div class="col-md-9">
+                    <div ng-include="'/partials/user-profile.html'"></div>        
+                </div>
+            </div>
+        <footer id="main-footer" ng-include="'/partials/footer.html'"></footer>
+    </div> 
+</body> 
+-->
