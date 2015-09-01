@@ -14,7 +14,7 @@ echo 'finished posting new client'
 
 echo 'POSTS NEW PROJECT, press any key to continue'
 read input_variable
-  curl --data "title=blah&description=fix sink&startDate=August&endDate=September&street=123 abc st.&city=owatonna&zipcode=55060&timePosted=now&category=plumbing&ClientUserId=808" localhost:8080/createProject
+  curl --data "title=blah&description=fix sink&startDate=August&endDate=September&street=123 abc st.&city=owatonna&zipcode=55060&timePosted=now&category=plumbing&ClientUserId=01-808" localhost:8080/createProject
 echo 'finished posting new project'
 #-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^- 
 
@@ -28,7 +28,7 @@ echo 'finished posting new project'
 
 echo 'SERVICEPROVIDER ACCEPTS PROJ, press any key to continue'
 read input_variable
-curl --data "ServiceProviderUserId=123&id=1" localhost:8080/providerAcceptProj
+curl --data "ServiceProviderUserId=02-123&id=1" localhost:8080/providerAcceptProj
 echo 'finished '
 
 #-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^- 

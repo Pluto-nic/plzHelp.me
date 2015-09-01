@@ -94,7 +94,7 @@ app.post('/createUser', function(req, res){
     city: req.body.city,
     zipcode: req.body.zipcode,
     gravatar: req.body.gravatar,
-    user_id: req.body.user_id,
+    user_id: '01-' + req.body.user_id,
     phone: req.body.phone
   };
   serverUtils.createInstance(req, res, Client, attributes);
@@ -114,7 +114,7 @@ app.post('/createServiceProvider', function(req, res){
      email: req.body.email,
      zipcode: req.body.zipcode,
      city: req.body.city,
-     user_id: req.body.user_id
+     user_id: '02-' + req.body.user_id
   };
   serverUtils.createInstance(req, res, ServiceProvider, attributes);
 });
