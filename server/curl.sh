@@ -4,7 +4,7 @@
 # -v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-
 echo 'POSTS NEW SERVICE PROVIDER, press any key to continue'
 read input_variable
-curl --data "user_id=123&businessName=bobsBurgers&address=123 abc st&phone=123-456-7890&email=me@email.com&password=password" localhost:8080/createServiceProvider
+curl --data "businessName=bobsBurgers&gravatar=myGrav&firstName=bob&lastName=burger&address=123 abc st&street=123 st&phone=123-456-7890&email=me@email.com&zipcode=55060&city=owatonna&user_id=123" localhost:8080/createServiceProvider
 echo 'finished posting new service provider'
 
 echo 'POSTS NEW CLIENT, press any key to continue'

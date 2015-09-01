@@ -7,11 +7,11 @@ module.exports = function(){
 
   var ServiceProvider = db.define('ServiceProvider', {
     businessName: Sequelize.STRING,
-    gravatar: sequelize.STRING,
+    gravatar: Sequelize.STRING,
     firstName: Sequelize.STRING,
     lastName: Sequelize.STRING,
     address: Sequelize.STRING,
-    street: Sequelize.STRING
+    street: Sequelize.STRING,
     phone: Sequelize.STRING,
     email: Sequelize.STRING,
     zipcode: Sequelize.STRING,

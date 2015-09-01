@@ -106,7 +106,7 @@ app.post('/createServiceProvider', function(req, res){
   var attributes = {
      businessName: req.body.businessName,
      gravatar: req.body.gravatar,
-     firstName: req.bod
+     firstName: req.body.firstName,
      address: req.body.address,
      street: req.body.street,
      phone: req.body.phone,
