@@ -8,7 +8,6 @@ module.exports = function defaultFactory($http){
       firstName: "firstname",
       lastName: "lastname",
       email: "email",
-      password: "password",
       street: "944 Market Street",
       city: "San Francisco",
       zipcode: "44306",
@@ -38,7 +37,6 @@ module.exports = function defaultFactory($http){
       businessName: "businessName",
       address: "lastname",
       email: "email",
-      password: "password",
       street: "944 Market Street",
       city: "San Francisco",
       zipcode: "44306",
@@ -59,6 +57,131 @@ module.exports = function defaultFactory($http){
   }
 
   /*******************************************
+   * Returns a client
+   ******************************************/
+   /*
+    Params: userid
+    */
+
+  function getUser(id){
+    return $http({
+      method: 'GET',
+      url: '/clientInfo',
+      headers: { 'Content-Type': 'application/json'},
+      data: {JSON.stringify(id)}
+    })
+    .then(function(res){
+      //do something
+    }
+  }
+
+  /*******************************************
+   * Returns a service provider
+   ******************************************/
+  /*
+    Params: serviceProviderID
+    */
+  function getServiceProvider(id){
+    return $http({
+      method: 'GET',
+      url: '/serviceProvider',
+      headers: { 'Content-Type': 'application/json'},
+      data: {JSON.stringify(id)}
+    })
+    .then(function(res){
+      //do something
+    }
+  }
+
+  /*******************************************
+   * Returns all open projects
+   ******************************************/
+   /*
+    Params(Optional): serviceProviderID
+    */
+
+  function allOpenProjects(id){
+   var route; 
+
+    if (id){
+      route = '/providerOpenProj';
+    } else {
+      route = '/openProj';
+    }
+    
+    return $http({
+      method: 'GET',
+      url: route,
+      headers: { 'Content-Type': 'application/json'},
+      data: {JSON.stringify(id)}
+    })
+    .then(function(res){
+      //do something
+    }
+  }
+
+  /*******************************************
+   * Returns all closed projects
+   ******************************************/
+  /*
+    Params(Optional): serviceProviderID
+    */
+
+  function allClosedProjects(id){
+    var route; 
+
+    if (id){
+      route = '/providerClosedProj';
+    } else {
+      route = '/closedProj';
+    }
+
+    return $http({
+      method: 'GET',
+      url: route,
+      headers: { 'Content-Type': 'application/json'},
+      data: {JSON.stringify(id)}
+    })
+    .then(function(res){
+      //do something
+    }
+  }
+  /*******************************************
+   * Ends a projects
+   ******************************************/
+  function endProject(projectID){
+    return $http({
+      method: 'POST',
+      url: '/closeProj',
+      headers: { 'Content-Type': 'application/json'},
+      data: { JSON.stringify(projectID)}
+    })
+    .then(function(res){
+      console.log("Successfully closed project");
+    })
+  }
+  /*******************************************
+   * Assigns a provider
+   ******************************************/
+
+  function assignProvider(projectID, userid){
+    var data = {
+      pid: projectID,
+      uid: userid
+    };
+
+    return $http({
+      method: 'POST',
+      url: '/closeProj',
+      headers: { 'Content-Type': 'application/json'},
+      data: { JSON.stringify(data)}
+    })
+    .then(function(res){
+      console.log("Successfully assigned provider");
+    })
+  }
+  
+  /*******************************************
    * Create a project
    ******************************************/
    /* 
@@ -68,7 +191,6 @@ module.exports = function defaultFactory($http){
       category: "category",
       startDate: "2014-05-23",
       endDate: "2014-05-23",
-      password: "password",
       street: "944 Market Street",
       city: "San Francisco",
       zipcode: "44306",
@@ -87,30 +209,6 @@ module.exports = function defaultFactory($http){
     })
   }
 
-  function openProjects(){
-    return $http({
-      method: 'GET',
-      url: '/openProj',
-      headers: { 'Content-Type': 'application/json'}
-    })
-    .then(function(res){
-      //do something
-    }
-  }
-
-  function getUser(id){
-    return $http({
-      method: 'GET',
-      url: '/clientInfo',
-      headers: { 'Content-Type': 'application/json'},
-      data: {JSON.stringify(id)}
-    })
-    .then(function(res){
-      //do something
-    }
-  }
-
-
 
   /*******************************************
    * Expose factory functions to the controller
@@ -119,9 +217,14 @@ module.exports = function defaultFactory($http){
   return({
     createUser: createUser,
     createServiceProvider: createServiceProvider,
+    getUser: getUser,
+    getServiceProvider: getServiceProvider,
+    allOpenProjects: allOpenProjects,
+    allClosedProjects: allClosedProjects,
+    endProject: endProject,
+    assignProvider: assignProvider,
     createProject: createProject,
-    openProjects: openProjects,
-    getUser: getUser
+    
   });
 
 };
