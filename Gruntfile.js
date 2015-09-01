@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['client/*.js'],
+        src: ['client/app.js', 'client/views/js/*.js'],
         dest: 'public/<%= pkg.name %>.js'
       }
     },
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       files: ['spec/**/*.html']
     },
     jshint: {
-      files: ['Gruntfile.js', 'client/*.js', 'spec/**/*.js'],
+      files: ['Gruntfile.js', 'client/*.js', 'client/views/js/*.js', 'spec/**/*.js'],
       options: {
         // options here to override JSHint defaults
         globals: {
@@ -35,6 +35,17 @@ module.exports = function(grunt) {
           document: true
         }
       }
+    },
+    copy: {
+      main: {
+        files: [
+          // includes files within path
+          {expand: true, src: ['client/app.js', 'client/index.html'], dest: 'public/', filter: 'isFile'},
+
+          // includes files within path and its sub-directories
+          {expand: true, src: ['client/views/**'], dest: 'public/'},
+        ],
+      },
     },
     watch: {
       files: ['<%= jshint.files %>'],
@@ -47,9 +58,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy')
 
   grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'copy']);
 
 };
