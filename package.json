@@ -38,9 +38,7 @@
     "sequelize": "^3.6.0",
     "serve-favicon": "^2.3.0",
     "sinon": "^1.16.1",
-    "sinon-chai": "^2.8.0"
-  },
-  "devDependencies": {
+    "sinon-chai": "^2.8.0",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "grunt-contrib-concat": "^0.5.1",
