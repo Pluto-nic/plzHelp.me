@@ -9,6 +9,7 @@ var ServiceProvider = models.ServiceProvider;
 var Client = models.Client;
 var Project = models.Project;
 
+var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
 
 app.use('/', express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -139,7 +140,13 @@ app.post('/createProject', function(req, res){
   };
 
   serverUtils.createInstance(req, res, Project, attributes, function(){
-    //twilio sms stuff
+    twilio.messages.create({  
+      to: "+16263157096",
+      from: "+17472238716", 
+      body: "A new project was posted: " + attributes.title + " - " + attributes.description  
+    }, function(err, message) { 
+      console.log(message.sid); 
+    });
   });
 });
 
