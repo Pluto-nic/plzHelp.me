@@ -9,12 +9,12 @@ echo 'finished posting new service provider'
 
 echo 'POSTS NEW CLIENT, press any key to continue'
 read input_variable
-curl --data "firstName=Derek&lastName=Olson&email=djo@gmail.com&password=Password&user_id=808&phone=507-456-2781&zipcode=55060&gravatar=noGravatar" localhost:8080/createUser
+curl --data "firstName=Derek&lastName=Olson&email=djo@gmail.com&street=1859 creekside&city=owatonna&zipcode=55060&user_id=808&phone=507-456-2781&gravatar=noGravatar" localhost:8080/createUser
 echo 'finished posting new client'
 
 echo 'POSTS NEW PROJECT, press any key to continue'
 read input_variable
-  curl --data "description=fix sink&date=August&address=123 abc st.&name=BOB&phone=111-111-1111&time=evening&category=plumbing&ClientUserId=808" localhost:8080/createProject
+  curl --data "title=blah&description=fix sink&startDate=August&endDate=September&street=123 abc st.&city=owatonna&zipcode=55060&timePosted=now&category=plumbing&ClientUserId=808" localhost:8080/createProject
 echo 'finished posting new project'
 #-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^- 
 

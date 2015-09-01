@@ -107,6 +107,7 @@ app.post('/createServiceProvider', function(req, res){
      businessName: req.body.businessName,
      gravatar: req.body.gravatar,
      firstName: req.body.firstName,
+     lastName: req.body.lastName,
      address: req.body.address,
      street: req.body.street,
      phone: req.body.phone,
