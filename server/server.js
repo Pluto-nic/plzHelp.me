@@ -1,16 +1,11 @@
-var express = require('express');
-var path = require('path');
-var pathParse = require('path-parse'); // polyfill for older Node versions
-var favicon = require('serve-favicon');
+var app = require('./server-config.js');
+var database = require('./db/orm-model.js');
 
-var app = express();
+app.set('port', process.env.PORT || 8080);
+app.listen(app.get('port'));
 
-// view engine setup - Derek we will use this if we end up using an ejs file to be served from server
-// app.set('views', path.join(__dirname, 'views')); 
-// app.set('view engine', 'ejs');
+console.log('Server listening on port ', app.get('port'));
 
-
-app.use(express.static(__dirname + "/../public"));
-app.use(favicon(__dirname + '/../client/favicon.ico'));
-
-// YOUR CODE HERE DEREK
+// var mysql = require('mysql');
+// var Sequelize = require('sequelize');
+// var sequelize = new Sequelize('chat', 'root', null, {define: {timestamps:false}});
