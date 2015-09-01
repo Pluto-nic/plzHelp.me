@@ -1,9 +1,33 @@
-insert into halp.Clients(firstName, lastName, email, password, zipcode, gravatar, phone, createdAt, updatedAt, user_id) values ('Napolean', 'Dynamite', 'pedro@gmail.com', 'nd', '12345','grav','myphone', 00000, 00000, '808'); 
+
+insert into halp.Clients(firstName, lastName, email, password, zipcode, gravatar, phone, createdAt, updatedAt, user_id) values ('Derek', 'Olson', 'djo@gmail.com', 'password', '55060','noGrav','507-456-2781', 00000, 00000, '808'); 
+
+insert into halp.Clients(firstName, lastName, email, password, zipcode, gravatar, phone, createdAt, updatedAt, user_id) values ('Napolean', 'Dynamite', 'pedro@gmail.com', 'psswrd', '51515','napolGrav','napolPhone', 00000, 00000, '123'); 
+
+insert into halp.Clients(firstName, lastName, email, password, zipcode, gravatar, phone, createdAt, updatedAt, user_id) values ('Spongebob', 'Squarepants', 'sbsp@gmail.com', 'gary', '00000','spongeGrav','conch-phone', 00000, 00000, '098'); 
+
+insert into halp.Clients(firstName, lastName, email, password, zipcode, gravatar, phone, createdAt, updatedAt, user_id) values ('Patrick', 'Star', 'pattyStar@gmail.com', 'uhhhh', '00000','patGrav','conch-pat', 00000, 00000, '121'); 
 
 
 
-insert into halp.ServiceProviders(id, businessName, address, phone, email, password, createdAt, updatedAt) values (1, 'krusty krab', '123 bikini bottom', '123-456-7890', 'imready@email.com','gray&squidward', 00000, 00000); 
 
 
 
-insert into halp.Projects(id, description, date, address, name, phone, time, category, isActive, createdAt, updatedAt, ClientUserId) values (1, 'my test proj', 'today', '123 cda st', 'need halps', '1234567890', 'morning', 'plumbing', 1, 00000, 00000, '808'); 
+insert into halp.ServiceProviders(user_id, businessName, address, phone, email, password, createdAt, updatedAt) values (kkId, 'krusty krab', '123 bikini bottom', '123-444-7890', 'kk@email.com','MONEY', 00000, 00000); 
+
+insert into halp.ServiceProviders(user_id, businessName, address, phone, email, password, createdAt, updatedAt) values (bbId, 'Bobs Burgers', '123 Ocean Ave', '123-555-7890', 'bb@email.com','burgers', 00000, 00000); 
+
+insert into halp.ServiceProviders(user_id, businessName, address, phone, email, password, createdAt, updatedAt) values (myId, 'APT', '909 12th st.', '123-666-7890', 'APT@email.com','apt', 00000, 00000); 
+
+insert into halp.ServiceProviders(user_id, businessName, address, phone, email, password, createdAt, updatedAt) values (plumbId, 'plumbers R US', '765 plumber st', '123-777-7890', 'plumbing@email.com','plumbing', 00000, 00000); 
+
+
+
+
+
+insert into halp.Projects(id, description, date, address, name, phone, time, category, isActive, createdAt, updatedAt, ClientUserId) values (1, 'kill neighbor', 'today', '99 kill st', 'secret name', '505-505-5050', 'anytime', 'hired assassians', 1, 00000, 00000, '808'); 
+
+insert into halp.Projects(id, description, date, address, name, phone, time, category, isActive, createdAt, updatedAt, ClientUserId) values (2, 'my test proj', 'today', '123 cda st', 'need halps', '1234567890', 'morning', 'plumbing', 1, 00000, 00000, '123'); 
+
+insert into halp.Projects(id, description, date, address, name, phone, time, category, isActive, createdAt, updatedAt, ClientUserId, ServiceProviderUserId) values (3, 'broke sink', 'today', '123 bikini st', 'fix me sink plz', 'conch-phone', 'morning', 'plumbing', 1, 00000, 00000, '098', plumbId); 
+
+insert into halp.Projects(id, description, date, address, name, phone, time, category, isActive, createdAt, updatedAt, ClientUserId, ServiceProviderUserId) values (1, 'gimme krabby patty', 'now', 'krusty krab', 'me hungry', 'no Phone', 'all', 'hunger', 1, 00000, 00000, '808', kkId); 

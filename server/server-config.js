@@ -90,7 +90,8 @@ app.post('/createUser', function(req, res){
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    password: req.body.password,
+    street: req.body.street,
+    city: req.body.city,
     zipcode: req.body.zipcode,
     gravatar: req.body.gravatar,
     user_id: req.body.user_id,
@@ -104,11 +105,15 @@ app.post('/createServiceProvider', function(req, res){
   console.log(req.body);
   var attributes = {
      businessName: req.body.businessName,
+     gravatar: req.body.gravatar,
+     firstName: req.bod
      address: req.body.address,
+     street: req.body.street,
      phone: req.body.phone,
      email: req.body.email,
-     user_id: req.body.user_id,
-     password: req.body.password
+     zipcode: req.body.zipcode,
+     city: req.body.city,
+     user_id: req.body.user_id
   };
   serverUtils.createInstance(req, res, ServiceProvider, attributes);
 });
@@ -119,17 +124,22 @@ app.post('/createProject', function(req, res){
   console.log('DATE', req.body.date);
   console.log(req.body);
   var attributes = {
+    title: req.body.title,
     description: req.body.description,
-    date: req.body.date,
-    address: req.body.address,
-    name: req.body.name,
-    phone: req.body.phone,
-    time: req.body.time,
     category: req.body.category,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    street: req.body.street,
+    city: req.body.city,
+    zipcode: req.body.zipcode,
+    timePosted: req.body.timePosted,
     isActive: true,
     ClientUserId: req.body.ClientUserId
   };
-  serverUtils.createInstance(req, res, Project, attributes)
+
+  serverUtils.createInstance(req, res, Project, attributes, function(){
+    //twilio sms stuff
+  });
 });
 
 // get all open projs
@@ -156,9 +166,7 @@ app.get('/clientInfo', function(req, res){
 //get ServiceProvider info
 app.get('/serviceProviderInfo', function(req, res){
   var withAttr = {
-    //attr to associate with serviceProvider such as spID
-    businessName: req.businessName,
-    id: req.body.id            //either will work
+    id: req.body.id  
   };
   serverUtils.getOne(req, res, ServiceProvider, withAttr);
 });

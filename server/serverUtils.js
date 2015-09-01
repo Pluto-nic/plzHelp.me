@@ -27,10 +27,13 @@ module.exports = {
     });
   },
 
-  createInstance: function(req, res, model, attributes){
+  createInstance: function(req, res, model, attributes, callback){
     model.build(attributes)
     .save()
     .then(function(anotherModel){
+      if(callback){
+        callback();
+      }
       console.log('Successfully Created instance', anotherModel);
       res.end(); //NOT SURE
     })

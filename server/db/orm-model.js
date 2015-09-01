@@ -7,10 +7,15 @@ module.exports = function(){
 
   var ServiceProvider = db.define('ServiceProvider', {
     businessName: Sequelize.STRING,
+    gravatar: sequelize.STRING,
+    firstName: Sequelize.STRING,
+    lastName: Sequelize.STRING,
     address: Sequelize.STRING,
+    street: Sequelize.STRING
     phone: Sequelize.STRING,
     email: Sequelize.STRING,
-    password: Sequelize.STRING,
+    zipcode: Sequelize.STRING,
+    city: Sequelize.STRING,
     user_id: {
       type: Sequelize.STRING,
       unique: true,
@@ -24,8 +29,9 @@ module.exports = function(){
     firstName: Sequelize.STRING,
     lastName: Sequelize.STRING,
     email: Sequelize.STRING,
-    password: Sequelize.STRING,
-    zipcode: Sequelize.INTEGER,
+    street: Sequelize.STRING,
+    city: Sequelize.STRING,
+    zipcode: Sequelize.STRING,
     user_id: {
       type: Sequelize.STRING,
       unique: true,
@@ -38,13 +44,15 @@ module.exports = function(){
   });
 
   var Project = db.define('Project', {
-    description: Sequelize.STRING, // Sequelize.TEXT for huge text files
-    date: Sequelize.STRING,
-    address: Sequelize.STRING,
-    name: Sequelize.STRING,
-    phone: Sequelize.STRING,
-    time: Sequelize.STRING,
+    title: Sequelize.STRING,
+    description: Sequelize.STRING,
     category: Sequelize.STRING,
+    startDate: Sequelize.STRING,
+    endDate: Sequelize.STRING,
+    street: Sequelize.STRING,
+    city: Sequelize.STRING,
+    zipcode: Sequelize.STRING,
+    timePosted: Sequelize.STRING,
     isActive: Sequelize.BOOLEAN
   });
 
