@@ -29,7 +29,7 @@ app.get('/closedProj',function(req, res){  //WORKING
 app.get('/providerOpenProj', function(req, res){
   var withAttr = {
     isActive:true, 
-    ServiceProviderId: req.query.ServiceProviderId //this is what I will need
+    ServiceProviderUserId: req.query.ServiceProviderUserId //this is what I will need
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
@@ -38,7 +38,7 @@ app.get('/providerOpenProj', function(req, res){
 app.get('/providerClosedProj', function(req, res){
   var withAttr = {
     isActive:false,
-    ServiceProviderId: req.query.ServiceProviderId
+    ServiceProviderUserId: req.query.ServiceProviderUserId
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
@@ -61,8 +61,6 @@ app.get('/clientOpenProj', function(req, res){
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
-
-
 // close proj (set from active from true to false)
 app.post('/closeProj', function(req, res){
   var newValues = {
@@ -78,7 +76,7 @@ app.post('/closeProj', function(req, res){
 // add servProvID to open proj (STILL NEED TODO)
 app.post('/providerAcceptProj', function(req, res){
   var newValues = { //need value below to associate them
-    ServiceProviderId: req.body.ServiceProviderId
+    ServiceProviderUserId: req.body.ServiceProviderUserId
   };
   var withAttr = {
     id:req.body.id
@@ -109,6 +107,7 @@ app.post('/createServiceProvider', function(req, res){
      address: req.body.address,
      phone: req.body.phone,
      email: req.body.email,
+     user_id: req.body.user_id,
      password: req.body.password
   };
   serverUtils.createInstance(req, res, ServiceProvider, attributes);
@@ -139,13 +138,6 @@ app.get('/openProj',function(req, res){
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
-
-
-// UNUSED ROUTES SO FAR
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-
 //get client info
 app.get('/clientInfo', function(req, res){
   var withAttr = {
@@ -153,6 +145,13 @@ app.get('/clientInfo', function(req, res){
   };
   serverUtils.getOne(req, res, Client, withAttr);
 });
+
+
+// UNUSED ROUTES SO FAR
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+
 
 //get ServiceProvider info
 app.get('/serviceProviderInfo', function(req, res){

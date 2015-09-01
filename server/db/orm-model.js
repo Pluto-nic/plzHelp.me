@@ -10,7 +10,14 @@ module.exports = function(){
     address: Sequelize.STRING,
     phone: Sequelize.STRING,
     email: Sequelize.STRING,
-    password: Sequelize.STRING
+    password: Sequelize.STRING,
+    user_id: {
+      type: Sequelize.STRING,
+      unique: true,
+      notEmpty: true,
+      // notNull: true,
+      primaryKey: true
+    }
   });
 
   var Client = db.define('Client',{
@@ -41,7 +48,7 @@ module.exports = function(){
     isActive: Sequelize.BOOLEAN
   });
 
-  Project.belongsTo(Client, { onDelete: 'cascade' });
+  Project.belongsTo(Client);
   ServiceProvider.hasMany(Project);
 
   db.sync();

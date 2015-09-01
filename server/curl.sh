@@ -4,7 +4,7 @@
 # -v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-
 echo 'POSTS NEW SERVICE PROVIDER, press any key to continue'
 read input_variable
-curl --data "businessName=bobsBurgers&address=123 abc st&phone=123-456-7890&email=me@email.com&password=password" localhost:8080/createServiceProvider
+curl --data "user_id=123&businessName=bobsBurgers&address=123 abc st&phone=123-456-7890&email=me@email.com&password=password" localhost:8080/createServiceProvider
 echo 'finished posting new service provider'
 
 echo 'POSTS NEW CLIENT, press any key to continue'
@@ -28,7 +28,7 @@ echo 'finished posting new project'
 
 echo 'SERVICEPROVIDER ACCEPTS PROJ, press any key to continue'
 read input_variable
-curl --data "ServiceProviderId=1&id=1" localhost:8080/providerAcceptProj
+curl --data "ServiceProviderUserId=123&id=1" localhost:8080/providerAcceptProj
 echo 'finished '
 
 #-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^- 
