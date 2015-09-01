@@ -10,7 +10,7 @@ var Client = models.Client;
 var Project = models.Project;
 
 
-app.use('/', express.static("./public"));
+app.use('/', express.static("./client"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
