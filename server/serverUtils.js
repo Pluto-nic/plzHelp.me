@@ -35,7 +35,7 @@ module.exports = {
         callback();
       }
       console.log('Successfully Created instance', anotherModel);
-      res.end(); //NOT SURE
+      res.json(anotherModel); 
     })
     .catch(function(err){
       console.log('ERROR CREATING INSTANCE: ', err);
@@ -50,8 +50,8 @@ module.exports = {
     })
     .error(function(err){
       console.log('ERR updating values: ', err)
+      res.end(err);
     });
   }
 
 };
-
