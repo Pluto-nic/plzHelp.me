@@ -116,9 +116,9 @@ app.post('/createServiceProvider', function(req, res){
 
 //creates a new Project
 app.post('/createProject', function(req, res){  
-  console.log('description', req.body.description);
-  console.log('DATE', req.body.date);
-  console.log(req.body);
+  // console.log('description', req.body.description);
+  // console.log('DATE', req.body.date);
+  // console.log(req.body);
   var attributes = {
     description: req.body.description,
     date: req.body.date,
@@ -147,7 +147,7 @@ app.get('/openProj',function(req, res){
 
 
 //get client info
-app.get('/clientInfo', function(req, res){
+app.post('/clientInfo', function(req, res){
   var withAttr = {
     user_id: req.body.user_id
   };
@@ -155,10 +155,10 @@ app.get('/clientInfo', function(req, res){
 });
 
 //get ServiceProvider info
-app.get('/serviceProviderInfo', function(req, res){
+app.post('/serviceProviderInfo', function(req, res){
   var withAttr = {
     //attr to associate with serviceProvider such as spID
-    businessName: req.businessName,
+    businessName: req.body.businessName,
     id: req.body.id            //either will work
   };
   serverUtils.getOne(req, res, ServiceProvider, withAttr);

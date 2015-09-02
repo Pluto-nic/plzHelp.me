@@ -14,8 +14,27 @@ angular
     $urlRouterProvider.otherwise('/');
 
     $stateProvider 
-        .state('index', {
+        .state('land', {
             url: '/',
+            views: {
+              '@' : {
+                templateUrl: 'landing.html',
+                controller: 'LoginCtrl'
+              },
+             
+            },
+          })
+        .state('accountSetup', {
+          url: '/acctSetup',
+          views: {
+            '@' : {
+              templateUrl: 'accountSetup.html',
+              controller: 'acctCtrl'
+            },
+          },
+        })
+        .state('index', {
+            url: '/index',
             views: {
               '@' : {
                 templateUrl: 'member.html',
@@ -42,7 +61,7 @@ angular
           }
         })
         .state('index.list.post', {
-          url: '/settings',
+          url: '/post',
           views: {
             'detail@index': {
               templateUrl: './partials/user-post-project.html',
@@ -79,13 +98,15 @@ angular
         })
     }
 
-])
+]).factory('appFact', function appFactory(){
+  return {};
+})
 .run(['$rootScope', '$state', '$stateParams', 'auth',
   function ($rootScope, $state, $stateParams, auth) {
     auth.hookEvents();
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-    $state.go("index.list.overview");
+    // $state.go("index.list.overview");
 }]);
 
 

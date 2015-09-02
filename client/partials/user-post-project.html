@@ -8,19 +8,19 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="">
+                        <form action="/createProject">
                             <h2>Job Details</h2>
                             <div class="form-group form-group-icon-left"><i class="fa fa-pencil input-icon"></i>
                                 <label>Name Your Job</label>
-                                <input class="form-control" placeholder="Install new bathroom & entryway light fixtures" type="text" />
+                                <input class="form-control" placeholder="Install new bathroom & entryway light fixtures" ng-model='name' type="text" />
                             </div>
                             <div class="form-group form-group-icon-left"><i class="fa fa-tasks input-icon"></i>
                                 <label>Describe It</label>
-                                <textarea class="form-control" rows="10" class="form-control" placeholder="My bathroom and front entryway have very poor lighting..." type="text" ></textarea>
+                                <textarea class="form-control" rows="10" class="form-control" placeholder="My bathroom and front entryway have very poor lighting..." 'description' type="text" ></textarea>
                             </div>
                             <div class="form-group form-group-icon-left">
                                 <label>Select the category of work</label>
-                                <select class="form-control">
+                                <select class="form-control" ng-model='category'>
                                     <option selected="selected">Plumbing</option>
                                     <option>Electrical</option>
                                     <option>Cleaning</option>
@@ -32,13 +32,13 @@
                                     <div class="col-md-3">
                                         <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                             <label>Ideal Start Date</label>
-                                            <input class="form-control" name="start" type="text" />
+                                            <input class="form-control" name="start" type="text" ng-model='startDate' />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                             <label>Ideal End Date</label>
-                                            <input class="form-control" name="start" type="text" />
+                                            <input class="form-control" name="start" type="text" ng-model='endDate'/>
                                         </div>
                                     </div>
                                 </div>
@@ -49,23 +49,23 @@
                             <div class="gap gap-small"></div>
                             <div class="form-group">
                                 <label>Street Address</label>
-                                <input class="form-control" placeholder="944 Market St #8" type="text" />
+                                <input class="form-control" placeholder="944 Market St #8" type="text" ng-model='address'/>
                             </div>
                             <div class="form-group">
                                 <label>City</label>
-                                <input class="form-control" placeholder="San Francisco" type="text" />
+                                <input class="form-control" placeholder="San Francisco" type="text" ng-model='city'/>
                             </div>
                             <div class="form-group">
                                 <label>State/Province/Region</label>
-                                <input class="form-control" placeholder="CA" type="text" />
+                                <input class="form-control" placeholder="CA" type="text" ng-model='state'/>
                             </div>
                             <div class="form-group">
                                 <label>ZIP code/Postal code</label>
-                                <input class="form-control" placeholder="94102" type="text" />
+                                <input class="form-control" placeholder="94102" type="text" ng-model='zipcode'/>
                             </div>
                             <div class="form-group">
                                 <label>Country</label>
-                                <input class="form-control" placeholder="United States" type="text" />
+                                <input class="form-control" placeholder="United States" type="text" ng-model='country'/>
                             </div>
                             <hr>
                             <input type="submit" class="btn btn-primary" value="Post" style="float: right; margin: 5px;">

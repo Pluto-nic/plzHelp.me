@@ -1,6 +1,5 @@
 angular.module('app')
-.controller('ListCtrl',  ['$scope', '$stateParams', function($scope, $stateParams){
-
+.controller('ListCtrl',  ['$scope', '$stateParams', 'appFact', function($scope, $stateParams, appFact){
   // Client Side Bar Options
   var clientOptions     = [
     {logo: "fa-user", title: "Overview", state: "overview"},
@@ -20,6 +19,7 @@ angular.module('app')
     {logo: "fa-heart-o", title: "Cont-Projects Wishlist", state: "wishList"},
   ];
   
-  $scope.Model.items = $stateParams.category === "Client" ? clientOptions : contractorOption;
+  // $scope.Model.items = $stateParams.category === "Client" ? clientOptions : contractorOption;
+  $scope.Model.items = appFact.category === "Client" ? clientOptions : contractorOption;
   $scope.$on("$destroy", function() {delete $scope.Model.items; })
 }]);

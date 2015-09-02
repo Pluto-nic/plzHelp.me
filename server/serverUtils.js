@@ -12,7 +12,6 @@ module.exports = {
       where: conditions
     })
     .then(function(resultOfFind){
-      console.log(resultOfFind);
       res.json(resultOfFind)
     });
   },
@@ -22,7 +21,6 @@ module.exports = {
       where: conditions
     })
     .then(function(resultOfFind){
-      console.log(resultOfFind);
       res.json(resultOfFind)
     });
   },
@@ -31,11 +29,12 @@ module.exports = {
     model.build(attributes)
     .save()
     .then(function(anotherModel){
-      console.log('Successfully Created instance', anotherModel);
-      res.end(); //NOT SURE
+      // console.log('Successfully Created instance', anotherModel);
+      // res.sendStatus(200); //NOT SURE
+      res.redirect('/index');
     })
     .catch(function(err){
-      console.log('ERROR CREATING INSTANCE: ', err);
+      // console.log('ERROR CREATING INSTANCE: ', err);
     });
   },
 

@@ -7,20 +7,21 @@
                 </a>
             </div>
             <div class="col-md-3 col-md-offset-2">                
-                <b>Load Side Menu:</b><br/>
+                <!--b>Load Side Menu:</b><br/>
                     <button type="button" style="float: center;" ng-repeat="category in Model.categories">
                        <a ui-sref="index.list({category:category})">{{category}}</a>
-                    </button>                      
+                    </button-->                      
             </div>
             <div class="col-md-4">
                 <div class="top-user-area clearfix">
                     <ul class="top-user-area-list list list-horizontal list-border">
                         <li class="top-user-area-avatar">
                             <a ui-sref="index.list.overview">
-                                <img class="origin round" src="img/syed.jpg" alt="User Photo" title="User Photo" />Hi, Syed</a>
+                                <img class="origin round" src={{userData.gravatar}} alt="User Photo" title="User Photo" />Hi, {{userData.firstName}}</a>
                         </li>
                         <li>
-                            <a href="#">Sign Out</a>
+                          <div ng-controller="LoginCtrl"><a ng-click="logout()">Sign Out</a>
+                          <!--a href="#">Sign Out</a-->
                         </li>
 
                     </ul>
