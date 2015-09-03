@@ -15,7 +15,7 @@ angular.module('app')
       appFact.userData   = userData;
      $http.post('/createUser', userData)
       .then(function(response){
-        // $state.go('index');
+         $state.go('index.list.overview');
       });
     }else{
       userData.businessName   = $scope.businessName;
@@ -28,7 +28,7 @@ angular.module('app')
       appFact.userData        = userData;
      $http.post('/createServiceProvider', userData)
       .then(function(response){
-        // $state.go('index');
+        $state.go('index');
       });
     }
 

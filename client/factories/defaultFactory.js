@@ -20,7 +20,7 @@ module.exports = function defaultFactory($http){
       method: 'POST',
       url: '/createUser',
       headers: { 'Content-Type': 'application/json'},
-      data: { JSON.stringify(userData)}
+      data: userData
     })
     .then(function(res){
       console.log("Successfully created user");
@@ -198,11 +198,12 @@ module.exports = function defaultFactory($http){
       ClientUserId: "userid"
    ******************************************/
   function createProject(data){
+    console.log(data);
     return $http({
       method: 'POST',
       url: '/createServiceProvider',
       headers: { 'Content-Type': 'application/json'},
-      data: { JSON.stringify(data)}
+      data: data
     })
     .then(function(res){
       console.log("Successfully created project");

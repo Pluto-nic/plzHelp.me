@@ -1,5 +1,4 @@
 angular.module('app')
-
 .controller('LoginCtrl', ['$scope', '$http', 'auth', 'store', '$location', '$state', 'appFact',
 function ($scope, $http, auth, store, $location, $state, appFact) {
   $scope.logout = function(){

@@ -56,7 +56,7 @@ angular
           views: {
             'detail@index': {
               templateUrl: './partials/user-profile.html',
-              //controller: 'ProfileCtrl' //Placeholder
+              controller: 'MembersCtrl' //Placeholder
             }
           }
         })

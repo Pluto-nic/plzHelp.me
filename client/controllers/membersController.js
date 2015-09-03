@@ -1,10 +1,13 @@
 angular.module('app')
-  .controller('MembersCtrl', ['$scope', '$state', 'appFact', function($scope, $state, appFact){
+  .controller('MembersCtrl', ['$scope', '$state', 'appFact', '$http', function($scope, $state, appFact, $http){
     $scope.Model = {
       categories : ["Client", "Contractor"],
     }
-    $scope.profile = appFact.profile;
-    $scope.userData = appFact.userData;
-    console.log(appFact);
-    $state.go('index.list.overview');
+    $http.post('/clientAllProj', appFact.profile)
+      .then(function(response){
+        $scope.projects = response.data;
+        $scope.profile = appFact.profile;
+        $scope.userData = appFact.userData;
+        $state.go('index.list.overview');
+      });
 }]);

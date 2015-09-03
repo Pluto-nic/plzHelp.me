@@ -53,15 +53,20 @@ app.get('/clientClosedProj', function(req, res){
 });
 
 // get open projs for a SPECIFIC USER
-app.get('/clientOpenProj', function(req, res){
+app.post('/clientOpenProj', function(req, res){
   var withAttr = {
     isActive: true,
-    ClientUserId: req.query.ClientUserId 
+    ClientUserId: req.body.user_id
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
-
+app.post('/clientAllProj', function(req, res){
+  var withAttr = {
+    ClientUserId: req.body.user_id
+  }
+  serverUtils.getAll(req, res, Project, withAttr);
+});
 
 // close proj (set from active from true to false)
 app.post('/closeProj', function(req, res){
@@ -130,6 +135,7 @@ app.post('/createProject', function(req, res){
     isActive: true,
     ClientUserId: req.body.ClientUserId
   };
+
   serverUtils.createInstance(req, res, Project, attributes)
 });
 
