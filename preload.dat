@@ -11,14 +11,13 @@ insert into halp.Clients(firstName, lastName, email, street, city, zipcode, grav
 
 
 
-insert into halp.ServiceProviders(user_id, businessName, address, street, city, phone, email, createdAt, updatedAt, gravatar, zipcode, firstName, lastName) values (02-kkId, 'krusty krab', '123 bikini bottom', 'bikini bottom st', 'bikini bottom', '123-444-7890', 'kk@email.com', 00000, 00000, 'kkGrav', 'kkZip', 'Eugene', 'Krabs'); 
+insert into halp.ServiceProviders(user_id, businessName, address, street, city, phone, email, createdAt, updatedAt, gravatar, zipcode, firstName, lastName) values ('02-kkId', 'krusty krab', '123 bikini bottom', 'bikini bottom st', 'bikini bottom', '123-444-7890', 'kk@email.com', 00000, 00000, 'kkGrav', 'kkZip', 'Eugene', 'Krabs'); 
 
+insert into halp.ServiceProviders(user_id, businessName, address, street, city, phone, email, createdAt, updatedAt, gravatar, zipcode, firstName, lastName) values ('02-bbId', 'Bobs Burgers', '123 Ocean Ave', 'Ocean Ave', 'SeaCity', '123-555-7890', 'bb@email.com', 00000, 00000, 'bbGrav', 'randomZipcode', 'bob', 'burger'); 
 
-insert into halp.ServiceProviders(user_id, businessName, address, phone, email, createdAt, updatedAt) values (02-bbId, 'Bobs Burgers', '123 Ocean Ave', '123-555-7890', 'bb@email.com', 00000, 00000); 
+insert into halp.ServiceProviders(user_id, businessName, address, street, city, phone, email, createdAt, updatedAt, gravatar, zipcode, firstName, lastName) values ('02-myId', 'APT', '909 12th st.', '12th', 'randomCity', '123-666-7890', 'APT@email.com', 00000, 00000, 'APTgrav', 'noZip', 'ally', 'ally'); 
 
-insert into halp.ServiceProviders(user_id, businessName, address, phone, email, createdAt, updatedAt) values (02-myId, 'APT', '909 12th st.', '123-666-7890', 'APT@email.com', 00000, 00000); 
-
-insert into halp.ServiceProviders(user_id, businessName, address, phone, email, createdAt, updatedAt) values (02-plumbId, 'plumbers R US', '765 plumber st', '123-777-7890', 'plumbing@email.com', 00000, 00000); 
+insert into halp.ServiceProviders(user_id, businessName, address, street, city, phone, email, createdAt, updatedAt, gravatar, zipcode, firstName, lastName) values ('02-plumbId', 'plumbers R US', '765 plumber st', 'plumber st', 'plumber-town', '123-777-7890', 'plumbing@email.com', 00000, 00000, 'plumbGrav', 'plumbZip', 'matt', 'matt'); 
 
 
 
