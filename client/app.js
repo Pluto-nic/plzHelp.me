@@ -83,7 +83,7 @@ angular
           views: {
             'detail@index': {
               templateUrl: './partials/user-profile-booking-history.html',
-              //controller: 'HistoryCtrl' //Placeholder
+              controller: 'historyCtrl' //Placeholder
             }
           }
         })
