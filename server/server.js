@@ -1,7 +1,7 @@
 
 var express = require('express');
 var path = require('path');
-var pathParse = require('path-parse'); // polyfill for older Node versions
+//var pathParse = require('path-parse'); // polyfill for older Node versions
 
 
 var app = require('./server-config.js');
@@ -16,7 +16,7 @@ var express = require('express');
 var path = require('path');
 //var pathParse = require('path-parse'); // polyfill for older Node versions
 
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 
 var app = express();
 
@@ -27,7 +27,7 @@ var app = express();
 
 
 app.use(express.static(__dirname + "/../public"));
-app.use(favicon(__dirname + '/../client/favicon.ico'));
+//app.use(favicon(__dirname + '/../client/favicon.ico'));
 
 // YOUR CODE HERE DEREK
 
