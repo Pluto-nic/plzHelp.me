@@ -8,7 +8,8 @@ var models = models();
 var ServiceProvider = models.ServiceProvider;
 var Client = models.Client;
 var Project = models.Project;
-
+var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
+var http = require('http'),
 
 app.use('/', express.static("./client"));
 app.use(bodyParser.urlencoded({ extended: false }));
