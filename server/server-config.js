@@ -112,6 +112,13 @@ app.post('/createServiceProvider', function(req, res){
      password: req.body.password
   };
   serverUtils.createInstance(req, res, ServiceProvider, attributes);
+  twilio.messages.create({  
+    to: "+16263157096",
+    from: "+17472238716", 
+    body: "A new project was posted: " + attributes.title + " - " + attributes.description  
+  }, function(err, message) { 
+    console.log(message.sid); 
+  });
 });
 
 //creates a new Project
