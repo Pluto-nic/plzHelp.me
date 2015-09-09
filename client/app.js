@@ -107,6 +107,36 @@ angular
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     // $state.go("index.list.overview");
+}])
+.run(['$rootScope', '$http', 'store', 'appFact', '$state', function($rootScope, $http, store, appFact, $state){
+    var profile = store.get('profile');
+    if(profile){
+      $rootScope.profile = profile;
+      appFact.profile = profile;
+      $http.post('/clientInfo', {user_id: profile.user_id})
+        .then(function(response){
+          if(!response.data){
+            $http.post('/serviceProviderInfo', {user_id: profile.user_id})
+              .then(function(response){
+                console.log(response);
+                if(!response.data){
+                  $state.go('accountSetup');
+                }
+                else{
+                  appFact.category = 'ServiceProvider';
+                  appFact.userData = response.data;
+                  $state.go('index.list.overview');      
+                }
+              });
+          }
+          else{
+            appFact.category = 'Client';
+            appFact.userData = response.data;
+            $state.go('index.list.overview');
+          }
+        });
+    }
+
 }]);
 
 

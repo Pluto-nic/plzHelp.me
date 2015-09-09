@@ -17,7 +17,7 @@
                     <ul class="top-user-area-list list list-horizontal list-border">
                         <li class="top-user-area-avatar">
                             <a ui-sref="index.list.overview">
-                                <img class="origin round" src={{userData.gravatar}} alt="User Photo" title="User Photo" />Hi, {{userData.firstName}}</a>
+                                <img class="origin round" src={{userData.gravatar}} alt="User Photo" title="User Photo" />Hello {{userData.firstName || userData.poc}}</a>
                         </li>
                         <li>
                           <div ng-controller="LoginCtrl"><a ng-click="logout()">Sign Out</a>

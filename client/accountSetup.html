@@ -1,128 +1,133 @@
 <div class="global-wrap" id="mainScrollable">
-        <h2 class="page-title">Account Settings</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
+  <h2 class="page-title">Account Settings</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
 
-    <h1>Let's Set Up Your Account!</h1>
-    <h2>What best describes you?</h2>
-    <form> 
-      <label for="client">I want to get help</label>
-      <input id="client" type="radio" name="accountType" ng-model="accountType" value="Client">
-      <!--br /-->
-      <label for="provider">I am providing help</label>
-      <input id="provider" type="radio" name="accountType" ng-model="accountType" value="ServiceProvider">
-    </form>
+        <h1>Let's Set Up Your Account!</h1>
+        <h2>What best describes you?</h2>
+        <form> 
+          <label for="client">I want to get help</label>
+          <input id="client" type="radio" name="accountType" ng-model="accountType" value="Client">
+          <label for="provider">I am providing help</label>
+          <input id="provider" type="radio" name="accountType" ng-model="accountType" value="ServiceProvider">
+        </form>
     
-    <div class="wrapper">
-      <div ng-show="accountType == 'Client'">
-
-   <div class="row">
-                    <div class="col-md-9">
-                        <div>
-                            <h4>Personal Infomation</h4>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
-                                <label>First Name</label>
-                                <input class="form-control" placeholder="John" ng-model='firstName' type="text" />
-                            </div>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
-                                <label>Last Name</label>
-                                <input class="form-control" placeholder="Doe" ng-model='lastName' type="text" />
-                            </div>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
-                                <label>E-mail</label>
-                                <input class="form-control" placeholder="johndoe@gmail.com" ng-model='email' type="text" />
-                            </div>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
-                                <label>Phone Number</label>
-                                <input class="form-control" placeholder="+1 202 555 0113" ng-model='phone' type="text" />
-                            </div>
-                            <div class="gap gap-small"></div>
-                            <h4>Home Location</h4>
-                            <div class="form-group">
-                                <label>Street Address</label>
-                                <input class="form-control" placeholder="944 Market St #8" ng-model='address' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>City</label>
-                                <input class="form-control" placeholder="San Francisco" ng-model='city' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>State/Province/Region</label>
-                                <input class="form-control" placeholder="CA" ng-model='state' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>ZIP code/Postal code</label>
-                                <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>Country</label>
-                                <input class="form-control" placeholder="United States" type="text" />
-                            </div>
-                            <hr>
-                            <button ng-click="newUser()">Let's Get Started!</button>
-                        </div>
-                    </div>
-                   
-                </div>
+        <div class="wrapper">
+          <div ng-show="accountType == 'Client'">
 
 
 
-
-
-      </div>
-      <div ng-show="accountType == 'ServiceProvider'">
-
-                <div class="row">
-                    <div class="col-md-9">
-                        <div>
-                            <h4>Company Information</h4>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
-                                <label>Business Name</label>
-                                <input class="form-control" placeholder="ABC Business" ng-model='businessName' type="text" />
-                            </div>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
-                                <label>Point of Contact Name</label>
-                                <input class="form-control" placeholder="John Smith" ng-model='poc' type="text" />
-                            </div>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
-                                <label>E-mail</label>
-                                <input class="form-control" placeholder="johndoe@gmail.com" ng-model='email' type="text" />
-                            </div>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
-                                <label>Phone Number</label>
-                                <input class="form-control" placeholder="+1 202 555 0113" ng-model='phone' type="text" />
-                            </div>
-                            <div class="gap gap-small"></div>
-                            <h4>Home Location</h4>
-                            <div class="form-group">
-                                <label>Street Address</label>
-                                <input class="form-control" placeholder="944 Market St #8" ng-model='address' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>City</label>
-                                <input class="form-control" placeholder="San Francisco" ng-model='city' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>State/Province/Region</label>
-                                <input class="form-control" placeholder="CA" ng-model='state' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>ZIP code/Postal code</label>
-                                <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label>Country</label>
-                                <input class="form-control" placeholder="United States" type="text" />
-                            </div>
-                            <hr>
-                            <button ng-click="newUser()">Let's Get Started!</button>
-                        </div>
-                    </div>
-                   
-                </div>
-      </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div>
+          <h4>Personal Infomation</h4>
+            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+              <label>First Name</label>
+              <input class="form-control" placeholder="John" ng-model='firstName' type="text" />
             </div>
+            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+              <label>Last Name</label>
+              <input class="form-control" placeholder="Doe" ng-model='lastName' type="text" />
+            </div>
+            <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
+              <label>E-mail</label>
+              <input class="form-control" placeholder="johndoe@gmail.com" ng-model='email' type="text" />
+            </div>
+            <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+              <label>Phone Number</label>
+              <input class="form-control" placeholder="+1 202 555 0113" ng-model='phone' type="text" />
+            </div>
+            <h4>Home Location</h4>
+            <div class="form-group">
+              <label>Street Address</label>
+              <input class="form-control" placeholder="944 Market St #8" ng-model='address' type="text" />
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <input class="form-control" placeholder="San Francisco" ng-model='city' type="text" />
+            </div>
+            <div class="form-group">
+              <label>State/Province/Region</label>
+              <input class="form-control" placeholder="CA" ng-model='state' type="text" />
+            </div>
+            <div class="form-group">
+              <label>ZIP code/Postal code</label>
+              <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input class="form-control" placeholder="United States" type="text" />
+            </div>
+            <hr>
+            <button ng-click="newUser()">Let's Get Started!</button>
+          </div>
         </div>
+      </div>
     </div>
+      <div ng-show="accountType == 'ServiceProvider'">
+        <div class="row">
+          <div class="col-md-9">
+            <div>
+              <h4>Company Information</h4>
+              <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                <label>Business Name</label>
+                <input class="form-control" placeholder="ABC Business" ng-model='businessName' type="text" />
+              </div>
+              <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                <label>Point of Contact Name</label>
+                <input class="form-control" placeholder="John Smith" ng-model='poc' type="text" />
+              </div>
+              <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
+                <label>E-mail</label>
+                <input class="form-control" placeholder="johndoe@gmail.com" ng-model='email' type="text" />
+              </div>
+              <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+                <label>Phone Number</label>
+                <input class="form-control" placeholder="+1 202 555 0113" ng-model='phone' type="text" />
+              </div>
+              <div class="gap gap-small"></div>
+                <h4>Home Location</h4>
+                <div class="form-group">
+                  <label>Street Address</label>
+                  <input class="form-control" placeholder="944 Market St #8" ng-model='address' type="text" />
+                </div>    
+                <div class="form-group">
+                  <label>City</label>
+                  <input class="form-control" placeholder="San Francisco" ng-model='city' type="text" />
+                </div>
+                <div class="form-group">
+                  <label>State/Province/Region</label>
+                  <input class="form-control" placeholder="CA" ng-model='state' type="text" />
+                </div>
+                <div class="form-group">
+                  <label>ZIP code/Postal code</label>
+                  <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
+                </div>
+                <div class="form-group">
+                  <label>Country</label>
+                  <input class="form-control" placeholder="United States" type="text" />
+                </div>
+                <div class="form-group form-group-icon-left">
+                  <label>What can you help with?</label>
+                  <select class="form-control" ng-model='specialty'>
+                      <option>Plumbing</option>
+                      <option>Electrical</option>
+                      <option>Tutoring</option>
+                      <option>Visual Design</option>
+                      <option>Interior Decorating</option>
+                      <option>Legal/Paralegal</option>
+                      <option>Cleaning</option>
+                      <option selected='selected'>General</option>
+                  </select>
+                </div>
+                <hr>
+                <button ng-click="newUser()">Let's Get Started!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
