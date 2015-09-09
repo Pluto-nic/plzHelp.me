@@ -8,13 +8,38 @@ var models = models();
 var ServiceProvider = models.ServiceProvider;
 var Client = models.Client;
 var Project = models.Project;
-
+var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
+var http = require('http');
 
 app.use('/', express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+http.createServer(function (req, res) {
+    //Create TwiML response
+  var twiml = new twilio.TwimlResponse();
+  twiml.say('Hello World!');
 
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+  // var body = '';
+
+  //  req.on('data', function(data) {
+  //    body += data;
+  //  });
+
+  //  req.on('end', function() {
+  //    //Create TwiML response
+  //    var twiml = new twilio.TwimlResponse();
+
+  //    twiml.message('Thanks, your message of "' + body + '" was received!');
+
+  //   res.writeHead(200, {'Content-Type': 'text/xml'});
+  //   res.end(twiml.toString());
+  //   });
+}).listen(1337, '127.0.0.1');
+
+console.log('TwiML servin\' server running at http://127.0.0.1:1337/');
 //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 //↓↓↓↓↓↓REQUESTS↓↓↓↓↓↓
 //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -139,7 +164,13 @@ app.post('/createProject', function(req, res){
   };
 
   serverUtils.createInstance(req, res, Project, attributes, function(){
-    //twilio sms stuff
+    twilio.messages.create({  
+      to: "+16263157096",
+      from: "+17472238716", 
+      body: "A new project was posted: " + attributes.title + " - " + attributes.description  
+    }, function(err, message) { 
+      console.log(message.sid); 
+    });
   });
 });
 
