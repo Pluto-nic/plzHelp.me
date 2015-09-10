@@ -92,7 +92,7 @@ angular
           views: {
             'detail@index': {
               templateUrl: './partials/user-profile-cards.html',
-              //controller: 'CardCtrl' //Placeholder
+              controller: 'cardCtrl' //Placeholder
             }
           }
         })
