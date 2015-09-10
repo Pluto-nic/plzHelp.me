@@ -6,12 +6,20 @@ angular.module('app')
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)
         .then(function(response){
-          $scope.filteredProj = {};
-          response.data.reduce(function(memo, current){
-            memo[current.category] ? memo[current.category].push(current) 
-                : memo[current.category] = [current];
-            return memo;
-          }, $scope.filteredProj);
+          $scope.filteredProj = {}, $scope.expenditures = 0;
+          if(response.data){
+            response.data.reduce(function(memo, current){
+              memo[current.category] ? memo[current.category].push(current) 
+                  : memo[current.category] = [current];
+              return memo;
+            }, $scope.filteredProj);
+            response.data.reduce(function(memo, current){
+              if(!current.isActive){
+                $scope.expenditures += current.cost;
+              }
+              return $scope.expenditures;
+            });
+          }
           // console.log('filtered Projects', $scope.filteredProj);
           $scope.accountType = appFact.category
           $scope.projects = response.data;

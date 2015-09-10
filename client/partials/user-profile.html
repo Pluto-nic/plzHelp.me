@@ -10,7 +10,7 @@
                     <ul class="list list-inline user-profile-statictics mb30">
                         <li><i class="fa fa-money user-profile-statictics-icon"></i>
                             <h5 ng-if="accountType == 'ServiceProvider'">${{earnings}}</h5>
-                            <h5 ng-if="accountType == 'Client'">$2600</h5>
+                            <h5 ng-if="accountType == 'Client'">${{expenditures}}</h5>
                             <p ng-if="accountType == 'ServiceProvider'">Earned</p>
                             <p ng-if="accountType == 'Client'">Spent</p>
                         </li>
