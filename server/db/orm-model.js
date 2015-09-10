@@ -20,12 +20,12 @@ module.exports = function(){
       type: Sequelize.STRING,
       unique: true,
       notEmpty: true,
-      // notNull: true,
+      notNull: true,
       primaryKey: true
     }
   });
 
-  var Client = db.define('Client',{
+  var Client = db.define('Client', {
     firstName: Sequelize.STRING,
     lastName: Sequelize.STRING,
     email: Sequelize.STRING,
@@ -36,7 +36,7 @@ module.exports = function(){
       type: Sequelize.STRING,
       unique: true,
       notEmpty: true,
-      // notNull: true,
+      notNull: true,
       primaryKey: true
     },
     gravatar: Sequelize.STRING,
@@ -62,5 +62,3 @@ module.exports = function(){
   db.sync();
   return {ServiceProvider:ServiceProvider, Client:Client, Project:Project};
 };
-
-
