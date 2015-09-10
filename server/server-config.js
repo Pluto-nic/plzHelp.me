@@ -38,7 +38,7 @@ app.get('/providerOpenProj', function(req, res){
 app.get('/providerClosedProj', function(req, res){
   var withAttr = {
     isActive:false,
-    ServiceProviderId: req.query.ServiceProviderUserId
+    ServiceProviderUserId: req.query.ServiceProviderUserId
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
@@ -147,11 +147,17 @@ app.post('/createProject', function(req, res){
 });
 
 // get all open projs
-app.get('/openProj',function(req, res){ 
+app.post('/openProj',function(req, res){ 
   var withAttr = {isActive:true};
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
+// get all open projs in a certain category
+app.post('/openProjwCat',function(req, res){ 
+  console.log('fjdsalkfjlds;kfjl;kdasjflkdsjlkfasj;lfads', req.body);
+  var withAttr = {isActive:true, category: req.body.category};
+  serverUtils.getAll(req, res, Project, withAttr);
+});
 
 
 // UNUSED ROUTES SO FAR

@@ -118,7 +118,6 @@ angular
           if(!response.data){
             $http.post('/serviceProviderInfo', {user_id: profile.user_id})
               .then(function(response){
-                console.log(response);
                 if(!response.data){
                   $state.go('accountSetup');
                 }

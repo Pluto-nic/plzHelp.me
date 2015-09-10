@@ -52,6 +52,7 @@ module.exports = function(){
     phone: Sequelize.STRING,
     time: Sequelize.STRING,
     category: Sequelize.STRING,
+    cost: Sequelize.INTEGER,
     isActive: Sequelize.BOOLEAN
   });
 
