@@ -29,7 +29,7 @@ app.post('/closedProj',function(req, res){  //WORKING
 app.post('/providerOpenProj', function(req, res){
   var withAttr = {
     isActive:true, 
-    ServiceProviderId: req.query.ServiceProviderUserId //this is what I will need
+    ServiceProviderId: req.query.ServiceProviderUserId 
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
@@ -80,7 +80,6 @@ app.post('/closeProj', function(req, res){
   serverUtils.updateInstance(req, res, Project, newValues, withAttr);
 });
 
-// add servProvID to open proj (STILL NEED TODO)
 app.post('/providerAcceptProj', function(req, res){
   var newValues = { //need value below to associate them
     ServiceProviderUserId: req.body.ServiceProviderUserId
@@ -139,6 +138,7 @@ app.post('/createProject', function(req, res){
     phone: req.body.phone,
     time: req.body.time,
     category: req.body.category,
+    cost: req.body.cost,
     isActive: true,
     ClientUserId: req.body.ClientUserId
   };

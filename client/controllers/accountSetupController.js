@@ -39,6 +39,5 @@ angular.module('app')
         $state.go('index.list.overview');
       });
     }
-
   }
 }]);

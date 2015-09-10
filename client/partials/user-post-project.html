@@ -1,87 +1,93 @@
 <div class="global-wrap">
-    <div class="container">
-        <h1 class="page-title">Post a Project</h1>
-    </div>
-
-    <div class="container">
+  <div class="container">
+    <h1 class="page-title">Post a Project</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
         <div class="row">
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div ng-controller='projCtrl'>
-                            <h2>Job Details</h2>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-pencil input-icon"></i>
-                                <label>Name Your Job</label>
-                                <input class="form-control" name='name' placeholder="Install new bathroom & entryway light fixtures" ng-model='name' type="text" />
-                            </div>
-                            <div class="form-group form-group-icon-left"><i class="fa fa-tasks input-icon"></i>
-                                <label>Describe It</label>
-                                <textarea class="form-control" rows="10" class="form-control" placeholder="My bathroom and front entryway have very poor lighting..." name='description' ng-model='description' type="text" ></textarea>
-                            </div>
-                            <div class="form-group form-group-icon-left">
-                                <label>Select the category of work</label>
-                                <select class="form-control" ng-model='category'>
-                                  <option>Plumbing</option>
-                                  <option>Electrical</option>
-                                  <option>Tutoring</option>
-                                  <option>Visual Design</option>
-                                  <option>Interior Decorating</option>
-                                  <option>Legal/Paralegal</option>
-                                  <option>Cleaning</option>
-                                  <option selected='selected'>General</option>
-                                </select>
-                            </div>
-                            <div class="input-daterange" data-date-format="M d, D">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
-                                            <label>Ideal Start Date</label>
-                                            <input class="form-control" name="start" type="text" ng-model='startDate' />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
-                                            <label>Ideal End Date</label>
-                                            <input class="form-control" name="start" type="text" ng-model='endDate'/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                            <div class="gap gap-small"></div>
-                            <h4>Location where work will be performed</h4>
-                            <input type="button" class="btn btn-primary" value="Fill in Home Address">
-                            <div class="gap gap-small"></div>
-                            <div class="form-group">
-                                <label>Street Address</label>
-                                <input class="form-control" placeholder="944 Market St #8" type="text" ng-model='address'/>
-                            </div>
-                            <div class="form-group">
-                                <label>City</label>
-                                <input class="form-control" placeholder="San Francisco" type="text" ng-model='city'/>
-                            </div>
-                            <div class="form-group">
-                                <label>State/Province/Region</label>
-                                <input class="form-control" placeholder="CA" type="text" ng-model='state'/>
-                            </div>
-                            <div class="form-group">
-                                <label>ZIP code/Postal code</label>
-                                <input class="form-control" placeholder="94102" type="text" ng-model='zipcode'/>
-                            </div>
-                            <div class="form-group">
-                                <label>Country</label>
-                                <input class="form-control" placeholder="United States" type="text" ng-model='country'/>
-                            </div>
-                            <hr>
-                            <input type="submit" class="btn btn-primary" value="Post" ng-click='postProject()' style="float: right; margin: 5px;">
-                            <input type="submit" class="btn btn-default" value="Cancel" style="float: right; margin: 5px;">
-                        </div>
-                    </div>
+          <div class="col-md-12">
+            <div ng-controller='projCtrl'>
+              <h2>Job Details</h2>
+                <div class="form-group form-group-icon-left"><i class="fa fa-pencil input-icon"></i>
+                  <label>Name Your Job</label>
+                  <input class="form-control" name='name' placeholder="Install new bathroom & entryway light fixtures" ng-model='name' type="text" />
                 </div>
-
+                <div class="form-group form-group-icon-left"><i class="fa fa-tasks input-icon"></i>
+                  <label>Describe It</label>
+                  <textarea class="form-control" rows="10" class="form-control" placeholder="My bathroom and front entryway have very poor lighting..." name='description' ng-model='description' type="text" ></textarea>
+                </div>
+                <div class="form-group form-group-icon-left">
+                  <label>Select the category of work</label>
+                  <select class="form-control" ng-model='category'>
+                    <option>Tutoring</option>
+                    <option>Electrical</option>
+                    <option>Visual Design</option>
+                    <option>Plumbing</option>
+                    <option>Interior Decorating</option>
+                    <option>Cleaning</option>
+                    <option>Legal/Paralegal</option>
+                    <option>Counseling/Life Coaching/Motivation</option>
+                    <option>Language Learning</option>
+                    <option>Music Lessons</option>
+                    <option>Fitness/Wellness</option>
+                    <option selected='selected'>General</option>
+                  </select>
+                </div>
+                <div class="input-daterange" data-date-format="M d, D">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon  input-icon-highlight"></i>
+                        <label>Ideal Start Date</label>
+                        <input class="form-control" name="start" type="text" ng-model='startDate' />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                        <label>Ideal End Date</label>
+                        <input class="form-control" name="start" type="text" ng-model='endDate'/>
+                      </div>
+                    </div>
+                  </div>
+                </div>    
+                <div class="gap gap-small"></div>
+                  <h4>Location where work will be performed</h4>
+                  <input type="button" class="btn btn-primary" value="Fill in Home Address">
+                  <div class="gap gap-small"></div>
+                    <div class="form-group">
+                      <label>Street Address</label>
+                      <input class="form-control" placeholder="944 Market St #8" type="text" ng-model='address'/>
+                    </div>
+                    <div class="form-group">
+                      <label>City</label>
+                      <input class="form-control" placeholder="San Francisco" type="text" ng-model='city'/>
+                    </div>
+                    <div class="form-group">
+                      <label>State/Province/Region</label>
+                      <input class="form-control" placeholder="CA" type="text" ng-model='state'/>
+                    </div>
+                    <div class="form-group">
+                      <label>ZIP code/Postal code</label>
+                      <input class="form-control" placeholder="94102" type="text" ng-model='zipcode'/>
+                    </div>
+                    <div class="form-group">
+                      <label>Country</label>
+                      <input class="form-control" placeholder="United States" type="text" ng-model='country'/>
+                    </div>
+                    <div class="form-group">
+                      <label>Budget</label>
+                      <input class="form-control" placeholder="$xxx" type="text" ng-model='cost'/>
+                    </div>
+                    <hr>
+                    <input type="submit" class="btn btn-primary" value="Post" ng-click='postProject()' style="float: right; margin: 5px;">
+                    <input type="submit" class="btn btn-default" value="Cancel" style="float: right; margin: 5px;">
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-
-
-

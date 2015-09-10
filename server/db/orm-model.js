@@ -1,4 +1,3 @@
-// 'use strict';
 var app = require('./../server-config.js');
 var db = require('./database');
 var Sequelize = require('sequelize'); 
@@ -19,7 +18,7 @@ module.exports = function(){
       type: Sequelize.STRING,
       unique: true,
       notEmpty: true,
-      // notNull: true,
+      notNull: true,
       primaryKey: true
     },
     gravatar: Sequelize.STRING,
@@ -45,7 +44,7 @@ module.exports = function(){
   });
 
   var Project = db.define('Project', {
-    description: Sequelize.STRING, // Sequelize.TEXT for huge text files
+    description: Sequelize.STRING, 
     date: Sequelize.STRING,
     address: Sequelize.STRING,
     name: Sequelize.STRING,

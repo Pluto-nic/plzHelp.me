@@ -1,9 +1,0 @@
-insert into halp.Clients(firstName, lastName, email, password, zipcode, gravatar, phone, createdAt, updatedAt, user_id) values ('Napolean', 'Dynamite', 'pedro@gmail.com', 'nd', '12345','grav','myphone', 00000, 00000, '808'); 
-
-
-
-insert into halp.ServiceProviders(id, businessName, address, phone, email, password, createdAt, updatedAt) values (1, 'krusty krab', '123 bikini bottom', '123-456-7890', 'imready@email.com','gray&squidward', 00000, 00000); 
-
-
-
-insert into halp.Projects(id, description, date, address, name, phone, time, category, isActive, createdAt, updatedAt, ClientUserId) values (1, 'my test proj', 'today', '123 cda st', 'need halps', '1234567890', 'morning', 'plumbing', 1, 00000, 00000, '808'); 

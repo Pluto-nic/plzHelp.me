@@ -15,11 +15,9 @@ angular.module('app')
     {logo: "fa-user", title: "Cont-Overview", state: "overview"},
     {logo: "fa-cog", title: "Cont-Settings", state: "settings"},
     {logo: "fa-clock-o", title: "Cont-Project History", state: "history"},
-    {logo: "fa-credit-card", title: "Cont-Credit/Debit Cards", state: "cards"},
     {logo: "fa-heart-o", title: "Cont-Projects Wishlist", state: "wishList"},
   ];
   
-  // $scope.Model.items = $stateParams.category === "Client" ? clientOptions : contractorOption;
   $scope.Model.items = appFact.category === "Client" ? clientOptions : contractorOption;
   $scope.$on("$destroy", function() {delete $scope.Model.items; })
 }]);

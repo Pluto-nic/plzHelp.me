@@ -29,12 +29,9 @@ module.exports = {
     model.build(attributes)
     .save()
     .then(function(anotherModel){
-      // console.log('Successfully Created instance', anotherModel);
-      // res.sendStatus(200); //NOT SURE
       res.sendStatus(200);
     })
     .catch(function(err){
-      // console.log('ERROR CREATING INSTANCE: ', err);
     });
   },
 

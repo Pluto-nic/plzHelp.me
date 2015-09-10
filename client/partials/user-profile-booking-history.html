@@ -1,43 +1,36 @@
 <div class="global-wrap">
-    <div class="container">
-        <h2 class="page-title">Project History</h2>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="checkbox">
-                    <label><input class="i-check" type="checkbox" />Show only current trip</label>
-                </div>
-                <table class="table table-bordered table-striped table-booking-history">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Title</th>
-                            <th>Location</th>
-                            <th>Order Date</th>
-                            <th>Execution Date</th>
-                            <th>Cost</th>
-                            <th>In Progress</th>
-                            <th>Cancel</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat='proj in projects'>
-                            <td class="booking-history-type"><i class="fa fa-building-o"></i><small>{{proj.category}}</small>
-                            </td>
-                            <td class="booking-history-title">{{proj.name}}</td>
-                            <td>New york City</td>
-                            <td>4/12/2014</td>
-                            <td>4/25/2014</td>
-                            <td>$350</td>
-                            <td class="text-center"><i class="fa fa-check"></i>
-                            </td>
-                            <td class="text-center"><a class="btn btn-default btn-sm" href="#">Cancel</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+  <div class="container">
+    <h2 class="page-title">Project History</h2>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="checkbox">
+          <label><input class="i-check" type="checkbox" />Show only current trip</label>
         </div>
+        <table class="table table-bordered table-striped table-booking-history">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Cost</th>
+              <th>In Progress</th>
+              <th>Close Project?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat='proj in projects'>
+              <td class="booking-history-type"><i class="fa fa-building-o"></i><small>{{proj.category}}</small></td>
+              <td class="booking-history-title">{{proj.name}}</td>
+              <td>{{proj.address}}</td>
+              <td>${{proj.cost}}</td>
+              <td class="text-center"><i ng-if='proj.isActive' class="fa fa-check"></i></td>
+              <td class="text-center"><a ng-if='proj.isActive' class="btn btn-default btn-sm" href="#" ng-click=closeProj(proj)>Close</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 </div>

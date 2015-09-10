@@ -11,6 +11,7 @@ angular.module('app')
     projData.name         = $scope.name;
     projData.time         = $scope.time;
     projData.category     = $scope.category;
+    projData.cost         = $scope.cost;
     projData.ClientUserId = appFact.profile.user_id;
 
     $http.post('/createProject', projData).then(function(){

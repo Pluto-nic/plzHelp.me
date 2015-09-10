@@ -7,7 +7,7 @@ angular.module('app')
       $http.post('/clientAllProj', appFact.profile)
         .then(function(response){
           $scope.filteredProj = {}, $scope.expenditures = 0;
-          if(response.data){
+          if(response.data.length){
             response.data.reduce(function(memo, current){
               memo[current.category] ? memo[current.category].push(current) 
                   : memo[current.category] = [current];
@@ -20,7 +20,6 @@ angular.module('app')
               return $scope.expenditures;
             });
           }
-          // console.log('filtered Projects', $scope.filteredProj);
           $scope.accountType = appFact.category
           $scope.projects = response.data;
           appFact.projects = response.data;
@@ -33,7 +32,6 @@ angular.module('app')
       $http.post('/openProjwCat', {category: appFact.userData.specialty})
         .then(function(projects){
           $scope.availProjects = projects.data;
-          // appFact.projects = projects.data;
         });
       $http.post('/providerClosedProj', {servProvID: appFact.profile.user_id})
         .then(function(projects){
@@ -45,7 +43,6 @@ angular.module('app')
               return $scope.earnings;
             }, $scope.earnings);
           }
-          console.log($scope.earnings);
         });
       $scope.accountType = appFact.category;
       $scope.userData = appFact.userData;

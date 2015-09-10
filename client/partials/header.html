@@ -1,32 +1,25 @@
 <div class="header-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <a class="logo" href="index.html">
-                    <img src="img/logo-updated.png" alt="plzHelp.me Logo" title="Logo" />
-                </a>
-            </div>
-            <div class="col-md-3 col-md-offset-2">                
-                <!--b>Load Side Menu:</b><br/>
-                    <button type="button" style="float: center;" ng-repeat="category in Model.categories">
-                       <a ui-sref="index.list({category:category})">{{category}}</a>
-                    </button-->                      
-            </div>
-            <div class="col-md-4">
-                <div class="top-user-area clearfix">
-                    <ul class="top-user-area-list list list-horizontal list-border">
-                        <li class="top-user-area-avatar">
-                            <a ui-sref="index.list.overview">
-                                <img class="origin round" src={{userData.gravatar}} alt="User Photo" title="User Photo" />Hello {{userData.firstName || userData.poc}}</a>
-                        </li>
-                        <li>
-                          <div ng-controller="LoginCtrl"><a ng-click="logout()">Sign Out</a>
-                          <!--a href="#">Sign Out</a-->
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a class="logo" href="index.html">
+          <img src="img/logo-updated.png" alt="plzHelp.me Logo" title="Logo" />
+        </a>
+      </div>
+      <div class="col-md-3 col-md-offset-2"></div>
+      <div class="col-md-4">
+        <div class="top-user-area clearfix">
+          <ul class="top-user-area-list list list-horizontal list-border">
+            <li class="top-user-area-avatar">
+              <a ui-sref="index.list.overview">
+                <img class="origin round" src={{userData.gravatar}} alt="User Photo" title="User Photo" />Hello {{userData.firstName || userData.poc}}</a>
+            </li>
+            <li>
+              <div ng-controller="LoginCtrl"><a ng-click="logout()">Sign Out</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
 </div>
