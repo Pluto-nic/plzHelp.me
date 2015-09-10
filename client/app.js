@@ -74,7 +74,7 @@ angular
           views: {
             'detail@index': {
               templateUrl: './partials/user-profile-settings.html',
-              //controller: 'SettingCtrl' //Placeholder
+              controller: 'settingsCtrl' //Placeholder
             }
           }
         })

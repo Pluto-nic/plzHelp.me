@@ -24,8 +24,20 @@ angular.module('app')
     if(appFact.category === 'ServiceProvider'){
       $http.post('/openProjwCat', {category: appFact.userData.specialty})
         .then(function(projects){
-          $scope.projects = projects.data;
-          appFact.projects = projects.data;
+          $scope.availProjects = projects.data;
+          // appFact.projects = projects.data;
+        });
+      $http.post('/providerClosedProj', {servProvID: appFact.profile.user_id})
+        .then(function(projects){
+          $scope.closedProjects = projects.data;
+          $scope.earnings = 0;
+          if($scope.closedProjects){
+            $scope.closedProjects.reduce(function(memo, current){
+              $scope.earnings += current.cost;
+              return $scope.earnings;
+            }, $scope.earnings);
+          }
+          console.log($scope.earnings);
         });
       $scope.accountType = appFact.category;
       $scope.userData = appFact.userData;

@@ -20,13 +20,13 @@ app.use(bodyParser.json());
 //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 // get all closed projects
-app.get('/closedProj',function(req, res){  //WORKING
+app.post('/closedProj',function(req, res){  //WORKING
   var withAttr = {isActive:false};
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
 // get open projs for specific servProv
-app.get('/providerOpenProj', function(req, res){
+app.post('/providerOpenProj', function(req, res){
   var withAttr = {
     isActive:true, 
     ServiceProviderId: req.query.ServiceProviderUserId //this is what I will need
@@ -35,16 +35,16 @@ app.get('/providerOpenProj', function(req, res){
 });
 
 //get closed projs for specific servProv
-app.get('/providerClosedProj', function(req, res){
+app.post('/providerClosedProj', function(req, res){
   var withAttr = {
     isActive:false,
-    ServiceProviderUserId: req.query.ServiceProviderUserId
+    ServiceProviderUserId: req.body.servProvID
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
 // get closed projects for a SPECIFIC USER
-app.get('/clientClosedProj', function(req, res){
+app.post('/clientClosedProj', function(req, res){
   var withAttr = {
     isActive: false,
     ClientUserId: req.query.ClientUserId 
