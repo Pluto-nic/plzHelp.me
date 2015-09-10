@@ -37,7 +37,7 @@ module.exports = function(){
       type: Sequelize.STRING,
       unique: true,
       notEmpty: true,
-      // notNull: true,
+      notNull: true,
       primaryKey: true
     },
     gravatar: Sequelize.STRING,
