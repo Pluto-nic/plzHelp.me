@@ -55,7 +55,7 @@ module.exports = function(){
     isActive: Sequelize.BOOLEAN
   });
 
-  Project.belongsTo(Client, { onDelete: 'cascade' });
+  Project.belongsTo(Client);
   ServiceProvider.hasMany(Project);
 
   db.sync();

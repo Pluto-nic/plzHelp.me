@@ -6,7 +6,6 @@ var Project = models.Project;
 var sequelize = require('./db/database.js');
 
 module.exports = {
-
   getAll: function(req, res, model, conditions){
     model.findAll({
       where: conditions
@@ -25,26 +24,27 @@ module.exports = {
     });
   },
 
-  createInstance: function(req, res, model, attributes){
+  createInstance: function(req, res, model, attributes, callback){
     model.build(attributes)
     .save()
     .then(function(anotherModel){
-      res.sendStatus(200);
+      if(callback){
+        callback();
+      }
+      res.json(anotherModel); 
     })
     .catch(function(err){
+      res.end(err);
     });
   },
 
   updateInstance: function(req, res, model, updateValues, conditions){
     model.update(updateValues, {where:conditions})
     .then(function(){
-      console.log('successfully updated values in DB');
       res.end();
     })
     .error(function(err){
-      console.log('ERR updating values: ', err)
+      res.end(err);
     });
   }
-
 };
-

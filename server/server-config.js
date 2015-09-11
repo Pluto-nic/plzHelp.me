@@ -8,7 +8,8 @@ var models = models();
 var ServiceProvider = models.ServiceProvider;
 var Client = models.Client;
 var Project = models.Project;
-
+var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
+var http = require('http');
 
 app.use('/', express.static("./client"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -127,9 +128,6 @@ app.post('/createServiceProvider', function(req, res){
 
 //creates a new Project
 app.post('/createProject', function(req, res){  
-  // console.log('description', req.body.description);
-  // console.log('DATE', req.body.date);
-  // console.log(req.body);
   var attributes = {
     description: req.body.description,
     date: req.body.date,
@@ -143,7 +141,16 @@ app.post('/createProject', function(req, res){
     ClientUserId: req.body.ClientUserId
   };
 
-  serverUtils.createInstance(req, res, Project, attributes)
+  serverUtils.createInstance(req, res, Project, attributes, function(){
+    //twilio sms stuff - commented out until functionality is fully flushed out.
+  //   twilio.messages.create({  
+  //     to: "+16263157096",
+  //     from: "+17472238716", 
+  //     body: "A new project was posted: " + attributes.title + " - " + attributes.description  
+  //   }, function(err, message) { 
+  //     console.log(message.sid); 
+  //   });
+  });
 });
 
 // get all open projs
@@ -159,12 +166,6 @@ app.post('/openProjwCat',function(req, res){
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
-
-// UNUSED ROUTES SO FAR
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-
 //get client info
 app.post('/clientInfo', function(req, res){
   var withAttr = {
@@ -176,9 +177,7 @@ app.post('/clientInfo', function(req, res){
 //get ServiceProvider info
 app.post('/serviceProviderInfo', function(req, res){
   var withAttr = {
-    //attr to associate with serviceProvider such as spID
-    // businessName: req.body.businessName,
-    user_id: req.body.user_id            //either will work
+    user_id: req.body.user_id
   };
   serverUtils.getOne(req, res, ServiceProvider, withAttr);
 });
