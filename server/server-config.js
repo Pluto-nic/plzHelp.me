@@ -11,6 +11,7 @@ var Project = models.Project;
 var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
 var http = require('http');
 
+
 app.use('/', express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -45,7 +46,7 @@ console.log('TwiML servin\' server running at http://127.0.0.1:1337/');
 //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 // get all closed projects
-app.get('/closedProj',function(req, res){  //WORKING
+app.get('/closedProj',function(req, res){  
   var withAttr = {isActive:false};
   serverUtils.getAll(req, res, Project, withAttr);
 });
@@ -54,7 +55,7 @@ app.get('/closedProj',function(req, res){  //WORKING
 app.get('/providerOpenProj', function(req, res){
   var withAttr = {
     isActive:true, 
-    ServiceProviderUserId: req.query.ServiceProviderUserId //this is what I will need
+    ServiceProviderUserId: req.query.ServiceProviderUserId 
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
@@ -86,7 +87,7 @@ app.get('/clientOpenProj', function(req, res){
   serverUtils.getAll(req, res, Project, withAttr);
 });
 
-// close proj (set from active from true to false)
+// close proj (set isActive from true to false)
 app.post('/closeProj', function(req, res){
   var newValues = {
     isActive: false,  
@@ -98,9 +99,9 @@ app.post('/closeProj', function(req, res){
   serverUtils.updateInstance(req, res, Project, newValues, withAttr);
 });
 
-// add servProvID to open proj (STILL NEED TODO)
+// add servProvID to open proj 
 app.post('/providerAcceptProj', function(req, res){
-  var newValues = { //need value below to associate them
+  var newValues = { 
     ServiceProviderUserId: req.body.ServiceProviderUserId
   };
   var withAttr = {
@@ -187,13 +188,6 @@ app.get('/clientInfo', function(req, res){
   };
   serverUtils.getOne(req, res, Client, withAttr);
 });
-
-
-// UNUSED ROUTES SO FAR
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-
 
 //get ServiceProvider info
 app.get('/serviceProviderInfo', function(req, res){

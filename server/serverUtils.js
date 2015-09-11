@@ -12,7 +12,6 @@ module.exports = {
       where: conditions
     })
     .then(function(resultOfFind){
-      console.log(resultOfFind);
       res.json(resultOfFind)
     });
   },
@@ -22,7 +21,6 @@ module.exports = {
       where: conditions
     })
     .then(function(resultOfFind){
-      console.log(resultOfFind);
       res.json(resultOfFind)
     });
   },
@@ -34,22 +32,19 @@ module.exports = {
       if(callback){
         callback();
       }
-      console.log('Successfully Created instance', anotherModel);
       res.json(anotherModel); 
     })
     .catch(function(err){
-      console.log('ERROR CREATING INSTANCE: ', err);
+      res.end(err);
     });
   },
 
   updateInstance: function(req, res, model, updateValues, conditions){
     model.update(updateValues, {where:conditions})
     .then(function(){
-      console.log('successfully updated values in DB');
       res.end();
     })
     .error(function(err){
-      console.log('ERR updating values: ', err)
       res.end(err);
     });
   }
