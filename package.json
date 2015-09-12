@@ -4,7 +4,8 @@
   "description": "An app to link general contractors to customers.",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
   },
   "engines": {
     "node": "0.12.6"
