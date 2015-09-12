@@ -90,7 +90,24 @@ app.post('/providerAcceptProj', function(req, res){
   var withAttr = {
     id:req.body.id
   };
-  serverUtils.updateInstance(req, res, Project, newValues, withAttr);
+  serverUtils.updateInstance(req, res, Project, newValues, withAttr, function(){
+    // sequelize.query('select phone, requestSMS from Clients where user_id=(select ClientUserId from Projects where id='
+    //   + req.body.id+')', {type: sequelize.Query});
+    sequelize.query('select phone, requestSMS from Clients where user_id=(select ClientUserId from Projects where id='
+     + req.body.id + ')',
+     {type: sequelize.QueryTypes.SELECT}).then(function(clientInfo){
+        if(clientInfo[0].requestSMS){
+          twilio.messages.create({  
+            to: "+1" + clientInfo[0].phone,
+            from: "+18449642068", 
+            body: "Good News!, someone has accepted your project!"
+          }, function(err, message) { 
+            console.log(err);
+            console.log(message); 
+          });
+        }
+    });
+  });
 });
 
 //create new Client
@@ -172,7 +189,7 @@ app.post('/createProject', function(req, res){
         console.log(number);
         twilio.messages.create({  
           to: "+1" + number.phone,
-          from: "+17472238716", 
+          from: "+18449642068", 
           body: "A new project was posted that matches your profile. Project details: " + req.body.name + " " + req.body.description  
         }, function(err, message) { 
           console.log(message); 

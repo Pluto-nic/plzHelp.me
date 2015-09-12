@@ -37,9 +37,12 @@ module.exports = {
     });
   },
 
-  updateInstance: function(req, res, model, updateValues, conditions){
+  updateInstance: function(req, res, model, updateValues, conditions, callback){
     model.update(updateValues, {where:conditions})
     .then(function(){
+      if(callback){
+        callback();
+      }
       res.end();
     })
     .error(function(err){
