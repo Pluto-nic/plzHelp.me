@@ -210,5 +210,9 @@ app.post('/serviceProviderInfo', function(req, res){
   serverUtils.getOne(req, res, ServiceProvider, withAttr);
 });
 
+app.post('/twilioCall', function(req, res){
+  console.log(req);
+  res.end();
+});
 
 module.exports = app;
