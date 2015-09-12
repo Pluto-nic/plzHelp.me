@@ -25,13 +25,12 @@ module.exports = {
   },
 
   createInstance: function(req, res, model, attributes, callback){
-    model.build(attributes)
-    .save()
+    model.upsert(attributes)
     .then(function(anotherModel){
       if(callback){
         callback();
       }
-      res.json(anotherModel); 
+      res.json(anotherModel);
     })
     .catch(function(err){
       res.end(err);

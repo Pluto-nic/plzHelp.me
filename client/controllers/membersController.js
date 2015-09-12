@@ -3,6 +3,9 @@ angular.module('app')
     $scope.Model = {
       categories : ["Client", "Contractor"],
     }
+    $scope.servProvJoinProj = function(proj){
+
+    }
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)
         .then(function(response){
@@ -10,7 +13,7 @@ angular.module('app')
           if(response.data.length){
             response.data.reduce(function(memo, current){
               memo[current.category] ? memo[current.category].push(current) 
-                  : memo[current.category] = [current];
+                : memo[current.category] = [current];
               return memo;
             }, $scope.filteredProj);
             response.data.reduce(function(memo, current){

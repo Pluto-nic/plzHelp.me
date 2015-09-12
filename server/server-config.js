@@ -103,7 +103,8 @@ app.post('/createUser', function(req, res){
     zipcode: req.body.zipcode,
     gravatar: req.body.gravatar,
     user_id: req.body.user_id,
-    phone: req.body.phone
+    phone: req.body.phone,
+    requestSMS: req.body.smsOption
   };
   serverUtils.createInstance(req, res, Client, attributes);
 });
@@ -120,6 +121,7 @@ app.post('/createServiceProvider', function(req, res){
      zipcode: req.body.zipcode,
      phone: req.body.phone,
      specialty: req.body.specialty,
+     requestSMS: req.body.smsOption,
      user_id: req.body.user_id,
      gravatar: req.body.gravatar
   };

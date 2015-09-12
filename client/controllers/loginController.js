@@ -32,15 +32,10 @@ function ($scope, $http, auth, store, $location, $state, appFact) {
           else{
             appFact.category = 'Client';
             appFact.userData = response.data;
-            // $http.post('/')
             $state.go('index.list.overview');
           }
         });
-      //try to find them in the database
-        //if not found, send to user settings
-      // $location.path('/profile');
     }, function () {
-      // Error callback
     });
   };
 }]);

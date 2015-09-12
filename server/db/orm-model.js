@@ -22,6 +22,7 @@ module.exports = function(){
       primaryKey: true
     },
     gravatar: Sequelize.STRING,
+    requestSMS: Sequelize.BOOLEAN
   });
 
   var Client = db.define('Client',{
@@ -41,6 +42,7 @@ module.exports = function(){
       primaryKey: true
     },
     gravatar: Sequelize.STRING,
+    requestSMS: Sequelize.BOOLEAN
   });
 
   var Project = db.define('Project', {

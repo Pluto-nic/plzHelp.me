@@ -8,49 +8,120 @@
       <div class="col-md-9">
         <div class="row">
           <div class="col-md-5">
-            <form action="">
-            <h4>Personal Infomation</h4>
-            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
-              <label>First Name</label>
-              <input class="form-control" placeholder="John" type="text" />
+            <div class="wrapper">
+              <div ng-show="accountType == 'Client'">
+                <div class="row">
+                  <div class="col-md-9">
+                    <div>
+                      <h4>Personal Information</h4>
+                      <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                        <label>First Name</label>
+                        <input class="form-control" placeholder="John" ng-model='firstName' type="text" />
+                      </div>
+                      <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                        <label>Last Name</label>
+                        <input class="form-control" placeholder="Doe" ng-model='lastName' type="text" />
+                    </div>
+                    <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
+                      <label>E-mail</label>
+                      <input class="form-control" placeholder="johndoe@gmail.com" ng-model='email' type="text" />
+                    </div>
+                    <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+                      <label>Phone Number</label>
+                      <input class="form-control" placeholder="+1 202 555 0113" ng-model='phone' type="text" />
+                    </div>
+                    <h4>Home Location</h4>
+                    <div class="form-group">
+                      <label>Street Address</label>
+                      <input class="form-control" placeholder="944 Market St #8" ng-model='address' type="text" />
+                    </div>
+                    <div class="form-group">
+                      <label>City</label>
+                      <input class="form-control" placeholder="San Francisco" ng-model='city' type="text" />
+                    </div>
+                    <div class="form-group">
+                      <label>State/Province/Region</label>
+                      <input class="form-control" placeholder="CA" ng-model='state' type="text" />
+                    </div>
+                    <div class="form-group">
+                      <label>ZIP code/Postal code</label>
+                      <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
+                    </div>
+                    <div class='form-group'>
+                      <label> Would you like to receive SMS alerts?</label>
+                      <input class='form-control' type="checkbox" ng-model='smsOption' checked>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
-              <label>Last Name</label>
-              <input class="form-control" placeholder="Doe" type="text" />
-            </div>
-            <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
-              <label>E-mail</label>
-              <input class="form-control" placeholder="johndoe@gmail.com" type="text" />
-            </div>
-            <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
-              <label>Phone Number</label>
-              <input class="form-control" placeholder="+1 202 555 0113" type="text" />
-            </div>
-            <div class="gap gap-small"></div>
-            <h4>Home Location</h4>
-            <div class="form-group">
-              <label>Street Address</label>
-              <input class="form-control" placeholder="944 Market St #8" type="text" />
-            </div>
-            <div class="form-group">
-              <label>City</label>
-              <input class="form-control" placeholder="San Francisco" type="text" />
-            </div>
-            <div class="form-group">
-              <label>State/Province/Region</label>
-              <input class="form-control" placeholder="CA" type="text" />
-            </div>
-            <div class="form-group">
-              <label>ZIP code/Postal code</label>
-              <input class="form-control" placeholder="94102" type="text" />
-            </div>
-            <div class="form-group">
-              <label>Country</label>
-              <input class="form-control" placeholder="United States" type="text" />
+            <div ng-show="accountType == 'ServiceProvider'">
+              <div class="row">
+                <div class="col-md-9">
+                  <div>
+                    <h4>Company Information</h4>
+                    <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                      <label>Business Name</label>
+                      <input class="form-control" placeholder="ABC Business" ng-model='businessName' type="text" />
+                    </div>
+                    <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                      <label>Point of Contact Name</label>
+                      <input class="form-control" placeholder="John Smith" ng-model='poc' type="text" />
+                    </div>
+                    <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
+                      <label>E-mail</label>
+                      <input class="form-control" placeholder="johndoe@gmail.com" ng-model='email' type="text" />
+                    </div>
+                    <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+                      <label>Phone Number</label>
+                      <input class="form-control" placeholder="+1 202 555 0113" ng-model='phone' type="text" />
+                    </div>
+                    <div class="gap gap-small"></div>
+                    <h4>Home Location</h4>
+                    <div class="form-group">
+                      <label>Street Address</label>
+                      <input class="form-control" placeholder="944 Market St #8" ng-model='address' type="text" />
+                    </div>    
+                    <div class="form-group">
+                      <label>City</label>
+                      <input class="form-control" placeholder="San Francisco" ng-model='city' type="text" />
+                    </div>
+                    <div class="form-group">
+                      <label>State/Province/Region</label>
+                      <input class="form-control" placeholder="CA" ng-model='state' type="text" />
+                    </div>
+                    <div class="form-group">
+                      <label>ZIP code/Postal code</label>
+                      <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
+                    </div>
+                    <div class='form-group'>
+                      <label> Would you like to receive SMS alerts?</label>
+                      <input class='form-control' type="checkbox" ng-model='smsOption' checked>
+                    </div>
+                    <div class="form-group form-group-icon-left">
+                      <label>What can you help with?</label>
+                      <select class="form-control" ng-model='specialty'>
+                          <option>Tutoring</option>
+                          <option>Electrical</option>
+                          <option>Visual Design</option>
+                          <option>Plumbing</option>
+                          <option>Interior Decorating</option>
+                          <option>Cleaning</option>
+                          <option>Legal/Paralegal</option>
+                          <option>Counseling/Life Coaching/Motivation</option>
+                          <option>Language Learning</option>
+                          <option>Music Lessons</option>
+                          <option>Fitness/Wellness</option>
+                          <option selected='selected'>General</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <hr>
-            <input type="submit" class="btn btn-primary" value="Save Changes">
-            </form>
+            <button ng-click="updateUser()">Save Changes</button>
           </div>
         </div>
       </div>
