@@ -38,10 +38,10 @@
                     <div ng-if="accountType == 'ServiceProvider'" class="list-group">
                       <div ng-repeat="proj in availProjects">
                        <a href="#" class="list-group-item">
-                          <h4 class="list-group-item-heading">
+                          <h4 class="list-group-item-heading" ng-click='servProvJoinProj(proj)'>
                             {{proj.name}} 
                           </h4>
-                          <p class="list-group-item-text">
+                          <p class="list-group-item-text" ng-click='servProvJoinProj(proj)'>
                              {{proj.description}}
                           </p>
                        </a>
