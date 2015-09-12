@@ -8,7 +8,7 @@
   <div class="container">
     <section>
       <a ui-sref="index.list.post">
-        <button type="button" class="btn btn-primary" style="float: right;" ng-hide="$state.current.name==='index.list.post'">Post New Project</button>
+        <button ng-if="accountType=='Client'" type="button" class="btn btn-primary" style="float: right;" ng-hide="$state.current.name==='index.list.post'">Post New Project</button>
       </a>
       <div class="row">
         <div class="col-md-3">

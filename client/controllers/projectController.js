@@ -7,7 +7,8 @@ angular.module('app')
     projData.description  = $scope.description;
     projData.date         = $scope.date;
     projData.address      = $scope.address;
-    projData.phone        = appFact.profile.phone;
+    projData.phone        = appFact.userData.phone;
+    projData.smsOption    = appFact.userData.smsOption;
     projData.name         = $scope.name;
     projData.time         = $scope.time;
     projData.category     = $scope.category;

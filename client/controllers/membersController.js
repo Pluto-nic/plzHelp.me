@@ -1,10 +1,12 @@
 angular.module('app')
-  .controller('MembersCtrl', ['$scope', '$state', 'appFact', '$http', function($scope, $state, appFact, $http){
+  .controller('MembersCtrl', ['$scope', '$state', 'appFact', '$http',
+   function($scope, $state, appFact, $http){
     $scope.Model = {
       categories : ["Client", "Contractor"],
     }
     $scope.servProvJoinProj = function(proj){
-      $http.post('/providerAcceptProj', {ServiceProviderUserId: appFact.userData.user_id, id: proj.id});
+      $http.post('/providerAcceptProj', 
+        {ServiceProviderUserId: appFact.userData.user_id, id: proj.id});
     }
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)

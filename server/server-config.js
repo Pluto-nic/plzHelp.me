@@ -8,7 +8,9 @@ var models = models();
 var ServiceProvider = models.ServiceProvider;
 var Client = models.Client;
 var Project = models.Project;
-var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
+var sequelize = require('./db/database.js');
+// var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
+var twilio = require('twilio')('AC59a7345491fadaa27a3e420d9bea4192', '7a20fe1bf4514a07d2e6d96a11980f27');
 var http = require('http');
 
 app.use('/', express.static("./client"));
@@ -106,7 +108,16 @@ app.post('/createUser', function(req, res){
     phone: req.body.phone,
     requestSMS: req.body.smsOption
   };
-  serverUtils.createInstance(req, res, Client, attributes);
+  serverUtils.createInstance(req, res, Client, attributes, function(){
+    if(req.body.smsOption){ 
+      twilio.outgoingCallerIds.create({
+        friendlyName: req.body.firstName + ' ' + req.body.lastName,
+        phoneNumber: "+1"+req.body.phone
+      }, function(err, number) { 
+        console.log(number); 
+      });
+    }
+  });
 });
 
 //create new ServiceProvider
@@ -125,7 +136,16 @@ app.post('/createServiceProvider', function(req, res){
      user_id: req.body.user_id,
      gravatar: req.body.gravatar
   };
-  serverUtils.createInstance(req, res, ServiceProvider, attributes);
+  serverUtils.createInstance(req, res, ServiceProvider, attributes, function(){
+    if(req.body.smsOption){ 
+      twilio.outgoingCallerIds.create({
+        friendlyName: req.body.poc,
+        phoneNumber: "+1"+req.body.phone
+      }, function(err, number) { 
+        console.log(number); 
+      });
+    }
+  });
 });
 
 //creates a new Project
@@ -143,15 +163,22 @@ app.post('/createProject', function(req, res){
     ClientUserId: req.body.ClientUserId
   };
 
+
   serverUtils.createInstance(req, res, Project, attributes, function(){
-    //twilio sms stuff - commented out until functionality is fully flushed out.
-  //   twilio.messages.create({  
-  //     to: "+16263157096",
-  //     from: "+17472238716", 
-  //     body: "A new project was posted: " + attributes.title + " - " + attributes.description  
-  //   }, function(err, message) { 
-  //     console.log(message.sid); 
-  //   });
+    sequelize.query('select phone from ServiceProviders where specialty = "' + 
+      req.body.category + '" and requestSMS = true',
+     {type: sequelize.QueryTypes.SELECT}).then(function(servProviders){
+      servProviders.forEach(function(number){
+        console.log(number);
+        twilio.messages.create({  
+          to: "+1" + number.phone,
+          from: "+17472238716", 
+          body: "A new project was posted that matches your profile. Project details: " + req.body.name + " " + req.body.description  
+        }, function(err, message) { 
+          console.log(message); 
+        });
+      });
+    });
   });
 });
 
@@ -163,7 +190,6 @@ app.post('/openProj',function(req, res){
 
 // get all open projs in a certain category
 app.post('/openProjwCat',function(req, res){ 
-  console.log('fjdsalkfjlds;kfjl;kdasjflkdsjlkfasj;lfads', req.body);
   var withAttr = {isActive:true, category: req.body.category};
   serverUtils.getAll(req, res, Project, withAttr);
 });
