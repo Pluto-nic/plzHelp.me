@@ -1,0 +1,28 @@
+<div class="global-wrap">
+  <section>
+    <header id="main-header">
+      <div ui-view="top"></div>
+    </header>
+  </section>
+  <div class="gap"></div>
+  <div class="container">
+    <section>
+      <a ui-sref="index.list.post">
+        <button ng-if="accountType=='Client'" type="button" class="btn btn-primary" style="float: right;" ng-hide="$state.current.name==='index.list.post'">Post New Project</button>
+      </a>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="gap-small"></div>
+            <aside class="user-profile-sidebar">
+              <div ui-view="left"></div>
+            </aside>
+          </div>
+          <div class="col-md-9" id="mainScrollable">
+           <div ui-view="main"></div>        
+          </div>
+        </div>
+      </div>
+    </section>
+    <section></section>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="user-profile-avatar text-center">
+  <div class="gap"></div>
+  <img src={{userData.gravatar}} alt="Image Alternative text" title="AMaze" />
+  <h5>{{userData.firstName}} {{userData.lastName}}</h5>
+  <p>Member Since May 2012</p>
+</div>
+
+<ul class="list user-profile-nav">
+  <li ng-repeat="item in Model.items">
+    <a ui-sref="index.list.{{item.state}}"><i class="fa {{item.logo}}"></i>{{item.title}}</a>
+  </li>
+</ul>
+
+
+
