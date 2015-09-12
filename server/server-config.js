@@ -91,8 +91,6 @@ app.post('/providerAcceptProj', function(req, res){
     id:req.body.id
   };
   serverUtils.updateInstance(req, res, Project, newValues, withAttr, function(){
-    // sequelize.query('select phone, requestSMS from Clients where user_id=(select ClientUserId from Projects where id='
-    //   + req.body.id+')', {type: sequelize.Query});
     sequelize.query('select phone, requestSMS from Clients where user_id=(select ClientUserId from Projects where id='
      + req.body.id + ')',
      {type: sequelize.QueryTypes.SELECT}).then(function(clientInfo){
