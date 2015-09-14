@@ -28,6 +28,15 @@ angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage', '
           },
         },
       })
+      .state('verify', {
+        url: '/verify',
+        views: {
+          '@' : {
+            templateUrl: 'verificationCode.html',
+            controller: 'verificationCtrl'
+          },
+        },
+      })
       .state('index', {
         url: '/index',
         views: {

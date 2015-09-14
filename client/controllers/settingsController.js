@@ -3,6 +3,7 @@ angular.module('app')
     $scope.profile = appFact.profile;
     $scope.accountType = appFact.category;
     $scope.userData = appFact.userData;
+    console.log($scope.userData);
     $scope.updateUser = function(){
       if($scope.accountType === 'Client'){
         appFact.userData.firstName = $scope.firstName || appFact.userData.firstName;

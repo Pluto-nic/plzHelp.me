@@ -17,10 +17,17 @@ angular.module('app')
       userData.user_id   = appFact.profile.user_id;
       userData.gravatar  = appFact.profile.picture;
       appFact.userData   = userData;
-     $http.post('/createUser', userData)
-      .then(function(response){
-         $state.go('index.list.overview');
-      });
+      if($scope.smsOption){
+        $http.post('/createUser', userData)
+         .then(function(response){
+            $state.go('verify')
+         });
+      }else{
+       $http.post('/createUser', userData)
+        .then(function(response){
+           $state.go('index.list.overview');
+        });
+      }
     }else{
       userData.businessName   = $scope.businessName;
       userData.poc            = $scope.poc;
@@ -35,10 +42,17 @@ angular.module('app')
       userData.user_id        = appFact.profile.user_id;
       userData.gravatar       = appFact.profile.picture;
       appFact.userData        = userData;
-     $http.post('/createServiceProvider', userData)
-      .then(function(response){
-        $state.go('index.list.overview');
-      });
+      if($scope.smsOption){
+        $http.post('/createUser', userData)
+         .then(function(response){
+            $state.go('verify')
+         });
+      }else{
+       $http.post('/createUser', userData)
+        .then(function(response){
+           $state.go('index.list.overview');
+        });
+      }
     }
   }
 }]);
