@@ -10,10 +10,12 @@ function ($scope, $http, auth, store, $location, $state, appFact) {
   $scope.login = function () {
     auth.signin({}, function (profile, token) {
       // Success callback
+      console.log('here');
       store.set('profile', profile);
       store.set('token', token);
       $scope.profile = profile;
       appFact.profile = profile;
+      console.log(profile);
       $http.post('/clientInfo', {user_id: profile.user_id})
         .then(function(response){
           if(!response.data){

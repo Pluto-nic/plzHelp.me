@@ -3,16 +3,23 @@ angular.module('app')
    function($scope, $state, appFact, $http){
     $scope.Model = {
       categories : ["Client", "Contractor"],
-    }
+    };
     $scope.servProvJoinProj = function(proj){
       $http.post('/providerAcceptProj', 
         {ServiceProviderUserId: appFact.userData.user_id, id: proj.id});
     };
+    $scope.loadIntro= function(){
+      console.log($scope);
+    }
+
     $scope.getData = function(){
-      $http.post('/clientInfo', {user_id: appFact.profile.user_id})
-        .then(function(results){
-          console.log('user info: ', results);
-        })
+      // $http.post('/clientInfo', {user_id: appFact.profile.user_id})
+      //   .then(function(results){
+      //     console.log('user info: ', results);
+      //   })
+      console.log($scope.IntroOptions);
+      console.log(document.querySelectorAll('#step2')[0])
+      console.log(document.querySelector('#step1'));
     };
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)
@@ -60,4 +67,42 @@ angular.module('app')
       $scope.profile = appFact.profile;
       $state.go('index.list.overview');
     }
+
+      $scope.IntroOptions = {
+        steps:[
+        {
+            element: document.querySelector('#step1'),
+            intro: "This is the first tooltip."
+        },
+        {
+            element: document.querySelectorAll('#step2')[0],
+            intro: "<strong>You</strong> can also <em>include</em> HTML",
+            position: 'right'
+        },
+        {
+            element: '#step3',
+            intro: 'More features, more fun.',
+            position: 'left'
+        },
+        {
+            element: '#step4',
+            intro: "Another step.",
+            position: 'bottom'
+        },
+        {
+            element: '#step5',
+            intro: 'Get it, use it.'
+        }
+        ],
+        showStepNumbers: false,
+        exitOnOverlayClick: true,
+        exitOnEsc:true,
+        nextLabel: '<strong>NEXT!</strong>',
+        prevLabel: '<span style="color:green">Previous</span>',
+        skipLabel: 'Exit',
+        doneLabel: 'Thanks'
+    };
+      
+    // console.log($scope.IntroOptions);
+    $scope.ShouldAutoStart = true;
 }]);
