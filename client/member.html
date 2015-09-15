@@ -8,6 +8,7 @@
   <div class="container">
     <section>
       <a ui-sref="index.list.post">
+        <button ng-click="getData()">get user data</button>
         <button class='animated infinite jello' ng-if="accountType=='Client'" type="button" class="btn btn-primary" style="float: right;" ng-hide="$state.current.name==='index.list.post'">Post New Project</button>
       </a>
       <div class="row">
