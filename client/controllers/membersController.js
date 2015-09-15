@@ -23,7 +23,7 @@ angular.module('app')
                 $scope.expenditures += current.cost;
               }
               return $scope.expenditures;
-            });
+            }, $scope.expenditures);
           }
           $scope.accountType = appFact.category
           $scope.projects = response.data;
