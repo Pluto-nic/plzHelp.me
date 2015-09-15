@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
                       <label>Phone Number</label>
-                      <input class="form-control" placeholder="+1 202 555 0113" ng-model='phone' type="text" />
+                      <input class="form-control" placeholder="(***)***-****" ng-model="phone" ui-mask="(999)999-9999" type="text" />
                     </div>
                     <h4>Home Location</h4>
                     <div class="form-group">
@@ -47,11 +47,11 @@
                       <label>ZIP code/Postal code</label>
                       <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-if="!userData.requestSMS">
                       <label> Would you like to receive SMS alerts?</label>
                       <input class='form-control' type="checkbox" ng-model='smsOption' checked>
+                      <p ng-if="smsOption">A confirmation call will be sent to the number provided. Verification code will be shown on next screen</p>
                     </div>
-                    <hr>
                   </div>
                 </div>
               </div>
@@ -95,9 +95,10 @@
                       <label>ZIP code/Postal code</label>
                       <input class="form-control" placeholder="94102" ng-model='zipcode' type="text" />
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-if="!userData.requestSMS">
                       <label> Would you like to receive SMS alerts?</label>
                       <input class='form-control' type="checkbox" ng-model='smsOption' checked>
+                      <p ng-if="smsOption">A confirmation call will be sent to the number provided. Verification code will be shown on next screen</p>
                     </div>
                     <div class="form-group form-group-icon-left">
                       <label>What can you help with?</label>

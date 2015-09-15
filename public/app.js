@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage'])
+angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage', 'ui.mask'])
 .config(['$stateProvider', '$urlRouterProvider', 'authProvider',
   function ($stateProvider, $urlRouterProvider, authProvider) {
     //auth0 configuration
@@ -25,6 +25,15 @@ angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage'])
           '@' : {
             templateUrl: 'accountSetup.html',
             controller: 'acctCtrl'
+          },
+        },
+      })
+      .state('verify', {
+        url: '/verify',
+        views: {
+          '@' : {
+            templateUrl: 'verificationCode.html',
+            controller: 'verificationCtrl'
           },
         },
       })
