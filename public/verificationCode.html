@@ -1,5 +1,6 @@
 <div class="global-wrap">
-  <p>Your verification code is:</p>
-  {{code}}
+  <p ng-if="!code">Retrieving your verification code</p>
+  <p ng-if="code">Your verification code is:</p>
+    {{code}}
   <input type="submit" ng-click="backToProfile()" />Take Me Home!
 </div>
