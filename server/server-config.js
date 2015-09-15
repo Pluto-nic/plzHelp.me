@@ -235,6 +235,7 @@ app.post('/twilioCall', function(req, res){
   sequelize.query('update ServiceProviders set verificationCode="' + 
     req.body.validation_code + '" where phone="' + number + 
     '"', {type: sequelize.QueryTypes.SELECT});
+  console.log('FINISHED STORING THE VERIFICATION CODE');
   res.end();
 });
 
@@ -245,9 +246,11 @@ app.post('/getTwilioCode', function(req, res){
   }else{
     acctTable = 'ServiceProviders';
   }
+  console.log(req.body);
   sequelize.query('select verificationCode from ' + acctTable + ' where user_id="'
     + req.body.user_id + '"', {type: sequelize.QueryTypes.SELECT})
     .then(function(code){
+      console.log('HERE IS THE RESPONSE CODE', code);
       res.send(code);
     });
 });
