@@ -7,7 +7,13 @@ angular.module('app')
     $scope.servProvJoinProj = function(proj){
       $http.post('/providerAcceptProj', 
         {ServiceProviderUserId: appFact.userData.user_id, id: proj.id});
-    }
+    };
+    $scope.getData = function(){
+      $http.post('/clientInfo', {user_id: appFact.profile.user_id})
+        .then(function(results){
+          console.log('user info: ', results);
+        })
+    };
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)
         .then(function(response){
