@@ -151,7 +151,9 @@ app.post('/createServiceProvider', function(req, res){
      user_id: req.body.user_id,
      gravatar: req.body.gravatar
   };
+  console.log('114321432432142314231423141123423423', attributes);
   serverUtils.createInstance(req, res, ServiceProvider, attributes, function(){
+    console.log('the sms option', req.body.smsOption);
     if(req.body.smsOption){ 
       twilio.outgoingCallerIds.create({
         friendlyName: req.body.poc,
@@ -184,7 +186,6 @@ app.post('/createProject', function(req, res){
       req.body.category + '" and requestSMS = true',
      {type: sequelize.QueryTypes.SELECT}).then(function(servProviders){
       servProviders.forEach(function(number){
-        console.log(number);
         twilio.messages.create({  
           to: "+1" + number.phone,
           from: "+18449642068", 
@@ -227,7 +228,28 @@ app.post('/serviceProviderInfo', function(req, res){
 
 app.post('/twilioCall', function(req, res){
   console.log(req);
+  var number = req.body.phone_number.slice(2);
+  sequelize.query('update Clients set verificationCode="' + 
+    req.body.validation_code + '" where phone="' + number + 
+    '"', {type: sequelize.QueryTypes.SELECT});
+  sequelize.query('update ServiceProviders set verificationCode="' + 
+    req.body.validation_code + '" where phone="' + number + 
+    '"', {type: sequelize.QueryTypes.SELECT});
   res.end();
+});
+
+app.post('/getTwilioCode', function(req, res){
+  var acctTable;
+  if(req.body.accountType === 'Client'){
+    acctTable = 'Clients';
+  }else{
+    acctTable = 'ServiceProviders';
+  }
+  sequelize.query('select verificationCode from ' + acctTable + ' where user_id="'
+    + req.body.user_id + '"', {type: sequelize.QueryTypes.SELECT})
+    .then(function(code){
+      res.send(code);
+    });
 });
 
 module.exports = app;
