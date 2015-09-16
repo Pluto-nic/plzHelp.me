@@ -92,6 +92,10 @@ angular.module('app')
         {
             element: '#step5',
             intro: 'Get it, use it.'
+        },
+        {
+            element: '#step6',
+            intro: 'Get it, use it.'
         }
         ],
         showStepNumbers: false,
