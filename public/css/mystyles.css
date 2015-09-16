@@ -1,7 +1,58 @@
 /*YOUR CUSTOM STYLES*/
+html {
+      overflow: auto;
+    overflow-x:hidden;
+}
 #mainScrollable{
     height: 640px;
     float: left;
     overflow: auto;
     overflow-x:hidden;
 }
+.list-group-item-heading {
+  background: #ed8323;
+  border-color: #e27513;
+}
+
+.circle {
+  height:175px;
+  width:175px;
+  border:solid 20px black;
+  background:transparent;
+  border-radius:100%;
+  display:inline-block;
+  margin:1em;
+  position:relative;
+  text-align:center;
+  line-height:200px;
+  color:white;
+  font-size:2em;
+  transform:rotate(45deg);
+  box-shadow:0 0 10px black, inset 0 0 20px #48a;
+
+}
+.circle > span {
+  display:inline-block;
+  text-align:center;
+  transform:rotate(-45deg);
+}
+.circle:before,.circle:after {
+  content:'';
+  position:absolute;
+  top:-5px;
+  left:-5px;
+  border:solid 50px transparent;
+  height:inherit;
+  width:inherit;
+  border-radius:inherit;
+}
+
+.c80 {
+    border-color:#ed8323;
+    border-left-color:black;
+}
+/*.c80:before {
+  border-bottom-color:#ed8323;
+  transform:rotate(45deg)
+}*/
+

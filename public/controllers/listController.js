@@ -12,9 +12,9 @@ angular.module('app')
 
   // Contractor Side Bar Options
   var contractorOption  = [
-    {logo: "fa-user", title: "Cont-Overview", state: "overview"},
-    {logo: "fa-cog", title: "Cont-Settings", state: "settings"},
-    {logo: "fa-clock-o", title: "Cont-Project History", state: "history"},
+    {logo: "fa-user", title: "Overview", state: "overview"},
+    {logo: "fa-cog", title: "Settings", state: "settings"},
+    {logo: "fa-clock-o", title: "Project History", state: "history"},
     {logo: "fa-heart-o", title: "Cont-Projects Wishlist", state: "wishList"},
   ];
   
