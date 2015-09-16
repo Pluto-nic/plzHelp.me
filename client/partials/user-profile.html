@@ -7,9 +7,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9">         
-        <h4>Summary</h4>
+        <h4 class="animated bounceInRight">Summary</h4>
         <ul id='step1' class="list list-inline user-profile-statictics mb30">
-          <li><i class="fa fa-money user-profile-statictics-icon animated bounceInRight"></i>
+          <li class="animated bounceInRight"><i class="fa fa-money user-profile-statictics-icon"></i>
             <!--h5>$3587</h5-->
             <h5 ng-if="accountType == 'ServiceProvider'">{{earnings}}</h5>
             <h5 ng-if="accountType == 'Client'">${{expenditures}}</h5>
@@ -37,8 +37,8 @@
             <p>Free Jobs Available</p>
           </li>
         </ul>
-        <h4 id='step3' ng-if="accountType == 'ServiceProvider'">Available Projects</h4>
-        <h4 id='step3' ng-if="accountType == 'Client'">Recent Projects</h4>
+        <h4 id='step3' class="animated fadeInUpBig" ng-if="accountType == 'ServiceProvider'">Available Projects</h4>
+        <h4 id='step3' class="animated fadeInUpBig" ng-if="accountType == 'Client'">Recent Projects</h4>
         <div ng-if="accountType == 'ServiceProvider'" class="list-group" ng-repeat="proj in availProjects">
           <a href="#" class="list-group-item animated fadeInUpBig">
             <h4 class="list-group-item-heading" ng-click='servProvJoinProj(proj)'>
