@@ -12,7 +12,9 @@ var sequelize = require('./db/database.js');
 // var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
 var twilio = require('twilio')('AC59a7345491fadaa27a3e420d9bea4192', '7a20fe1bf4514a07d2e6d96a11980f27');
 var http = require('http');
+var cors = require('cors');
 
+app.use(cors());
 app.use('/', express.static("./client"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -50,7 +52,7 @@ app.post('/providerClosedProj', function(req, res){
 app.post('/clientClosedProj', function(req, res){
   var withAttr = {
     isActive: false,
-    ClientUserId: req.query.ClientUserId 
+    ClientUserId: req.body.ClientUserId 
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
@@ -151,7 +153,6 @@ app.post('/createServiceProvider', function(req, res){
      user_id: req.body.user_id,
      gravatar: req.body.gravatar
   };
-  console.log('114321432432142314231423141123423423', attributes);
   serverUtils.createInstance(req, res, ServiceProvider, attributes, function(){
     console.log('the sms option', req.body.smsOption);
     if(req.body.smsOption){ 
