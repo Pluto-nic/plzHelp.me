@@ -8,19 +8,7 @@ angular.module('app')
       $http.post('/providerAcceptProj', 
         {ServiceProviderUserId: appFact.userData.user_id, id: proj.id});
     };
-    $scope.loadIntro= function(){
-      console.log($scope);
-    }
 
-    $scope.getData = function(){
-      // $http.post('/clientInfo', {user_id: appFact.profile.user_id})
-      //   .then(function(results){
-      //     console.log('user info: ', results);
-      //   })
-      console.log($scope.IntroOptions);
-      console.log(document.querySelectorAll('#step2')[0])
-      console.log(document.querySelector('#step1'));
-    };
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)
         .then(function(response){
@@ -45,6 +33,10 @@ angular.module('app')
           $scope.userData = appFact.userData;
           $state.go('index.list.overview');
         });
+
+
+
+
     }
     if(appFact.category === 'ServiceProvider'){
       $http.post('/openProjwCat', {category: appFact.userData.specialty})
@@ -71,32 +63,24 @@ angular.module('app')
       $scope.IntroOptions = {
         steps:[
         {
-            element: document.querySelector('#step1'),
-            intro: "This is the first tooltip."
+            element:'#step1',
+            intro: "Snapshot of your recent history."
         },
         {
-            element: document.querySelectorAll('#step2')[0],
-            intro: "<strong>You</strong> can also <em>include</em> HTML",
+            element: '#step2',
+            intro: "Earn points with every completed project, points can be redeemed for projects ",
             position: 'right'
         },
         {
             element: '#step3',
-            intro: 'More features, more fun.',
-            position: 'left'
+            intro: 'Project history will be updated here',
+            position: 'top'
         },
         {
             element: '#step4',
-            intro: "Another step.",
-            position: 'bottom'
+            intro: "Change profile settings, see project history and send payment for completed projects.",
+            position: 'right'
         },
-        {
-            element: '#step5',
-            intro: 'Get it, use it.'
-        },
-        {
-            element: '#step6',
-            intro: 'Get it, use it.'
-        }
         ],
         showStepNumbers: false,
         exitOnOverlayClick: true,
@@ -106,7 +90,5 @@ angular.module('app')
         skipLabel: 'Exit',
         doneLabel: 'Thanks'
     };
-      
-    // console.log($scope.IntroOptions);
-    $scope.ShouldAutoStart = true;
+    $scope.ShouldAutoStart = false;
 }]);

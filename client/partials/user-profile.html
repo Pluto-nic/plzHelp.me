@@ -4,66 +4,66 @@
     <h2 class="page-title">Profile Overview</h2>
        <button ng-click="CallMe()">Demo</button>
   </div>
-  <div class="container" >
+  <div class="container">
     <div class="row">
       <div class="col-md-9">         
-       <h4>Summary</h4>
-      <ul id='step1' class="list list-inline user-profile-statictics mb30">
-        <li class='animated rotateInDownLeft'><i class="fa fa-money user-profile-statictics-icon"></i>
-          <h5 ng-if="accountType == 'ServiceProvider'">${{earnings}}</h5>
-          <h5 ng-if="accountType == 'Client'">${{expenditures}}</h5>
-          <p ng-if="accountType == 'ServiceProvider'">Earned</p>
-          <p ng-if="accountType == 'Client'">Spent</p>
-        </li>
-        <li id='step2' class='animated rotateInDownLeft'><i class="fa fa-users user-profile-statictics-icon"></i>
-          <h5>15</h5>
-          <p>Providers Online</p>
-        </li>
-        <li id='step3' class='animated rotateInDownLeft'><i class="fa fa-houzz user-profile-statictics-icon"></i>
-          <h5 ng-if="accountType == 'Client'">{{projects.length}}</h5>
-          <h5 ng-if="accountType == 'ServiceProvider'">{{closedProjects.length}}</h5>
-          <p ng-if="accountType == 'Client'">Total Projects</p>
-          <p ng-if="accountType == 'ServiceProvider'">Completed Projects</p>
-        </li>
-        <li id='step4' class='animated rotateInDownLeft'><i class="fa fa-question-circle user-profile-statictics-icon"></i>
-          <h5>#</h5>
-          <p>Something</p>
-        </li>
-        <li class='animated rotateInDownLeft'><i class="fa fa-question-circle user-profile-statictics-icon"></i>
-          <h5>#</h5>
-          <p>Something</p>
-        </li>
-      </ul>
-      <h4 id='step5' ng-if="accountType == 'ServiceProvider'">Available Projects</h4>
-      <h4 id='step5' ng-if="accountType == 'Client'">Recent Projects</h4>
-      <div ng-if="accountType == 'ServiceProvider'" class="list-group">
-        <div ng-repeat="proj in availProjects">
-          <a class='animated fadeInUpBig' href="#" class="list-group-item">
+        <h4>Summary</h4>
+        <ul id='step1' class="list list-inline user-profile-statictics mb30">
+          <li><i class="fa fa-money user-profile-statictics-icon animated bounceInRight"></i>
+            <!--h5>$3587</h5-->
+            <h5 ng-if="accountType == 'ServiceProvider'">{{earnings}}</h5>
+            <h5 ng-if="accountType == 'Client'">${{expenditures}}</h5>
+            <p ng-if="accountType == 'ServiceProvider'">Earned</p>
+            <p ng-if="accountType == 'Client'">Spent</p>
+          </li>
+          <li class='animated bounceInRight'><i class="fa fa-houzz user-profile-statictics-icon"></i>
+            <!--h5>17</h5-->
+            <h5 ng-if="accountType == 'Client'">{{projects.length}}</h5>
+            <p ng-if="accountType == 'Client'">Projects Posted</p>
+            <h5 ng-if="accountType == 'ServiceProvider'">{{closedProjects.length}}</h5>
+            <p ng-if="accountType == 'ServiceProvider'">Completed Projects</p>
+          </li>
+          <li class='animated bounceInRight' id='step2'><i class="fa fa-diamond user-profile-statictics-icon"></i>
+            <h5>650</h5>
+            <p>Points Earned</p>
+          </li>
+          <li class='animated bounceInRight'><i class="fa fa-users user-profile-statictics-icon"></i>
+            <h5>459</h5>
+            <p>Providers Online</p>
+          </li>
+                    
+          <li class='animated bounceInRight'><i class="fa fa-beer user-profile-statictics-icon"></i>
+            <h5>2</h5>
+            <p>Free Jobs Available</p>
+          </li>
+        </ul>
+        <h4 id='step3' ng-if="accountType == 'ServiceProvider'">Available Projects</h4>
+        <h4 id='step3' ng-if="accountType == 'Client'">Recent Projects</h4>
+        <div ng-if="accountType == 'ServiceProvider'" class="list-group" ng-repeat="proj in availProjects">
+          <a href="#" class="list-group-item animated fadeInUpBig">
             <h4 class="list-group-item-heading" ng-click='servProvJoinProj(proj)'>
               {{proj.name}} 
             </h4>
             <p class="list-group-item-text" ng-click='servProvJoinProj(proj)'>
              {{proj.description}}
-           </p>
-          </a>
-        </div> 
-      </div>
-      <div ng-if="accountType == 'Client'" class="list-group" ng-repeat='(key,projects) in filteredProj'>
-        <a href="#" class="list list-group-item active">
-          <h4 class="list list-group-item-heading">
-            {{key}}
-          </h4>
-        </a>
-        <div ng-repeat="proj in projects">
-          <a href="#" class="list-group-item animated fadeInUpBig" >
-            <h4 class="list-group-item-heading">
-              {{proj.name}} 
-            </h4>
-            <p class="list-group-item-text">
-              {{proj.description}}
             </p>
           </a>
-        </div> 
+        </div>
+        <div ng-if="accountType == 'Client'" class="list-group" ng-repeat='(key,projects) in filteredProj'>
+          <a href="#" class="list list-group-item active animated fadeInUpBig">
+            <h4 class="list list-group-item-heading">
+              {{key}}
+            </h4>
+          </a>
+          <div ng-repeat="proj in projects">
+            <a href="#" class="list-group-item animated fadeInUpBig">
+              <h4> {{proj.name}} </h4>
+              <p class="list-group-item-text">
+                {{proj.description}}
+              </p>
+            </a>
+          </div> 
+        </div>
       </div>
     </div>
   </div>           

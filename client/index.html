@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-smooth-scroll>
   <head>
     <base href="/">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta name="description" content="plzHelp - Your one-stop shop for all your house repair and improvement needs.">
     <meta name="author" content="Syed Jafri">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- GOOGLE FONTS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
-
     <!-- STYLES -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -32,23 +30,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-
+    <script src="bower_components/angular-smooth-scroll/angular-smooth-scroll.js"></script>
     <!--AUTH0-->
     <!-- We use client cookies to save the user credentials -->
     <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
-
     <!-- Auth0 Lock script and AngularJS module -->
     <script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>
     <!-- angular-jwt and angular-storage -->
     <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
     <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-
     <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
-
     <!-- Setting the right viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!--AUTH0 END-->
-
     <!-- APP JS FILES -->
     <script src="app.js"></script>
     <script src="./controllers/membersController.js"></script>
@@ -62,10 +56,20 @@
     <script src="./controllers/accountSetupController.js"></script>
     <script src="./controllers/historyController.js"></script>
   </head>
-
   <body>
     <div class="global-wrap">
       <div ui-view></div>
     </div>
+    <!-- Start of LiveChat (www.livechatinc.com) code -->
+    <script type="text/javascript">
+      var __lc = {};
+      __lc.license = 6489491;
+      (function() {
+        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+      })();
+    </script>
+    <!-- End of LiveChat code -->
   </body>
 </html>

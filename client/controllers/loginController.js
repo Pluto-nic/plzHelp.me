@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('LoginCtrl', ['$scope', '$http', 'auth', 'store', '$location', '$state', 'appFact',
+.controller('LoginCtrl', ['$scope', '$http', 'auth', 'store', '$location', '$state', 'appFact', 
 function ($scope, $http, auth, store, $location, $state, appFact) {
   $scope.logout = function(){
     auth.signout();
@@ -7,6 +7,7 @@ function ($scope, $http, auth, store, $location, $state, appFact) {
     store.remove('token');
     $state.go('land');
   };
+
   $scope.login = function () {
     auth.signin({}, function (profile, token) {
       // Success callback
