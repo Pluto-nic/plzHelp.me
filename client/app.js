@@ -1,6 +1,8 @@
-angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage'])
-.config(['$stateProvider', '$urlRouterProvider', 'authProvider',
-  function ($stateProvider, $urlRouterProvider, authProvider) {
+angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage', 'smoothScroll'])
+.config(['$stateProvider', '$urlRouterProvider', 'authProvider', '$locationProvider',
+  function ($stateProvider, $urlRouterProvider, authProvider, $locationProvider) {
+
+    $locationProvider.html5Mode(true);
     //auth0 configuration
     authProvider.init({
       domain: 'plzhelp.auth0.com',
@@ -101,7 +103,11 @@ angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage'])
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
-  .run(['$rootScope', '$http', 'store', 'appFact', '$state', function($rootScope, $http, store, appFact, $state){
+  .run(['$rootScope', '$http', 'store', 'appFact', '$state', '$location','$anchorScroll', function($rootScope, $http, store, appFact, $state, $location, $anchorScroll){
+    $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
+      if($location.hash()) $anchorScroll();  
+    });
+
     var profile = store.get('profile');
     if(profile){
       $rootScope.profile = profile;
@@ -127,6 +133,8 @@ angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage'])
             $state.go('index.list.overview');
           }
         });
+    } else {
+      $state.go('land');
     }
   }]);
 

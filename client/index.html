@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-smooth-scroll>
   <head>
+    <base href='/'>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta name="description" content="plzHelp - Your one-stop shop for all your house repair and improvement needs.">
     <meta name="author" content="Syed Jafri">
@@ -23,6 +24,8 @@
     <script src="js/bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-smooth-scroll/angular-smooth-scroll.js"></script>
+
 
     <!--AUTH0-->
     <!-- We use client cookies to save the user credentials -->
@@ -56,6 +59,17 @@
   <body>
     <div class="global-wrap">
       <div ui-view></div>
-    </div>
-  </body>
+  </div>
+  <!-- Start of LiveChat (www.livechatinc.com) code -->
+  <script type="text/javascript">
+    var __lc = {};
+    __lc.license = 6489491;
+    (function() {
+      var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+      lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+  })();
+</script>
+<!-- End of LiveChat code -->
+</body>
 </html>
