@@ -72,16 +72,16 @@ angular.module('app')
         steps:[
         {
             element: document.querySelector('#step1'),
-            intro: "This is the first tooltip."
+            intro: "How much have I spent?"
         },
         {
             element: document.querySelectorAll('#step2')[0],
-            intro: "<strong>You</strong> can also <em>include</em> HTML",
+            intro: "Check how many providers are online at any time!",
             position: 'right'
         },
         {
             element: '#step3',
-            intro: 'More features, more fun.',
+            intro: 'More projects, more fun.',
             position: 'left'
         },
         {
@@ -91,7 +91,7 @@ angular.module('app')
         },
         {
             element: '#step5',
-            intro: 'Get it, use it.'
+            intro: 'Shows all the recent projects you have had!'
         }
         ],
         showStepNumbers: false,
