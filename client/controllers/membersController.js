@@ -3,17 +3,12 @@ angular.module('app')
    function($scope, $state, appFact, $http){
     $scope.Model = {
       categories : ["Client", "Contractor"],
-    }
+    };
     $scope.servProvJoinProj = function(proj){
       $http.post('/providerAcceptProj', 
         {ServiceProviderUserId: appFact.userData.user_id, id: proj.id});
     };
-    $scope.getData = function(){
-      $http.post('/clientInfo', {user_id: appFact.profile.user_id})
-        .then(function(results){
-          console.log('user info: ', results);
-        })
-    };
+
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)
         .then(function(response){
@@ -38,6 +33,10 @@ angular.module('app')
           $scope.userData = appFact.userData;
           $state.go('index.list.overview');
         });
+
+
+
+
     }
     if(appFact.category === 'ServiceProvider'){
       $http.post('/openProjwCat', {category: appFact.userData.specialty})
@@ -60,4 +59,36 @@ angular.module('app')
       $scope.profile = appFact.profile;
       $state.go('index.list.overview');
     }
+
+      $scope.IntroOptions = {
+        steps:[
+        {
+            element:'#step1',
+            intro: "Snapshot of your recent history."
+        },
+        {
+            element: '#step2',
+            intro: "Earn points with every completed project, points can be redeemed for projects ",
+            position: 'right'
+        },
+        {
+            element: '#step3',
+            intro: 'Project history will be updated here',
+            position: 'top'
+        },
+        {
+            element: '#step4',
+            intro: "Change profile settings, see project history and send payment for completed projects.",
+            position: 'right'
+        },
+        ],
+        showStepNumbers: false,
+        exitOnOverlayClick: true,
+        exitOnEsc:true,
+        nextLabel: '<strong>NEXT!</strong>',
+        prevLabel: '<span style="color:green">Previous</span>',
+        skipLabel: 'Exit',
+        doneLabel: 'Thanks'
+    };
+    $scope.ShouldAutoStart = false;
 }]);
