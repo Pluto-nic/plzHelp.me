@@ -28,7 +28,7 @@
 	.main-section{ padding:70px 0;}
 	.c-logo-part ul li{ margin:0 1%; float:left; width:18%;}
 	.c-logo-part ul li a{ display:block;}
-	.c-logo-part ul li a img{ display:block;}
+	.c-logo-part ul li a img{ width:100%;}
 	.form{ margin:0;}
 	.contact-info-box{ margin:0 ;}
 	.social-link{ margin:0;}
@@ -64,7 +64,7 @@
 	#client_outer{ padding:25px 0px;}
 	.client_profile.flt{ float:none;}
 	.c-logo-part ul li{  margin:0 6px;}
-	.c-logo-part ul a{ width:100px;}
+	.c-logo-part ul a{ width:100%;}
 	.client_profile{ float:none; margin:0 0 20px 0;}
 	.client_area{ width:436px;}
 	.quote_section{ width:auto; float:none;}
