@@ -11,6 +11,9 @@
 	.top_cont_inner{ background-size:400px;}
 	
 	.top_cont_latest{ background-size:500px;}
+		.c-logo-part ul li{ margin:0 1%; float:left; width:100%;}
+	.c-logo-part ul li a{ display:block;}
+	.c-logo-part ul li a img{ width:100%;}
 }
    
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -26,8 +29,8 @@
 	.service-list{ margin-bottom:20px; font-size:15px;}
 	.featured-work p.padding-b{ padding-bottom:15px;}
 	.main-section{ padding:70px 0;}
-	.c-logo-part ul li{ margin:0 1%; float:left; width:18%;}
-	.c-logo-part ul li a{ display:block;}
+	.c-logo-part ul li{ margin:0 1%; float:left; width:18%;width:100%;}
+	.c-logo-part ul li a{ display:block;width:100%;}
 	.c-logo-part ul li a img{ width:100%;}
 	.form{ margin:0;}
 	.contact-info-box{ margin:0 ;}
@@ -63,7 +66,7 @@
 	.client_profile_pic{ float:none; width:150px; height:150px; margin:0px auto;}
 	#client_outer{ padding:25px 0px;}
 	.client_profile.flt{ float:none;}
-	.c-logo-part ul li{  margin:0 6px;}
+	.c-logo-part ul li{  margin:0 6px;width:100%;}
 	.c-logo-part ul a{ width:100%;}
 	.client_profile{ float:none; margin:0 0 20px 0;}
 	.client_area{ width:436px;}
@@ -99,7 +102,7 @@
 	.featured-work{ font-size:12px; margin-top:30px;}
 	.featured-box{ font-size:12px;}
 	.featured-box p{ line-height:18px; }
-	.c-logo-part ul a{ margin-bottom:5px;}
+	.c-logo-part ul a{ margin-bottom:5px; width:100%;}
 	.main-section.team{ padding:60px 0 50px;}
 	.business-talking h2{ font-size:36px;}
 	.contact-info-box{ margin:0 0 12px 30px; font-size:12px;}
@@ -163,7 +166,7 @@
 	.header{ padding:40px;}
 	.social-link{ margin-left:0px;}
 	.form{ margin:0}
-	.c-logo-part ul li{ display:block;}
+	.c-logo-part ul li{ display:block;width:100%;}
 	.Portfolio-box{  max-width:300px !important; width:96.4% !important; margin:0 !important}
 	.Portfolio-box img { max-width:100%;}
 	.portfolioContainer{ width:280px !important; margin:0 auto !important }
@@ -171,6 +174,6 @@
 	.client_area{ width:276px;}
 	.quote_section p{ font-size:15px;} 
 	.c-logo-part{ padding:18px 0px;}
-	.c-logo-part ul li{ margin:6px 0px; display:block;}
+	.c-logo-part ul li{ margin:6px 0px; display:block; width:100%;}
 	
 }
