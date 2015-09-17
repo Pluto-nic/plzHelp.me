@@ -8,7 +8,8 @@ var sequelize = require('./db/database.js');
 module.exports = {
   getAll: function(req, res, model, conditions){
     model.findAll({
-      where: conditions
+      where: conditions,
+      order: 'createdAt DESC'
     })
     .then(function(resultOfFind){
       res.json(resultOfFind)

@@ -62,6 +62,7 @@ app.post('/clientOpenProj', function(req, res){
   var withAttr = {
     isActive: true,
     ClientUserId: req.body.user_id
+    // order: 'createdAt DESC'
   };  
   serverUtils.getAll(req, res, Project, withAttr);
 });
