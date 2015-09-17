@@ -105,7 +105,7 @@ angular.module('app', ['ui.router', 'auth0', 'angular-jwt', 'angular-storage', '
     }
   ])
   .factory('appFact', function appFactory(){
-    return {};
+    return {points: 650};
   })
   .run(['$rootScope', '$state', '$stateParams', 'auth',
     function ($rootScope, $state, $stateParams, auth) {

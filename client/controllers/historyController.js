@@ -3,8 +3,11 @@ angular.module('app')
     $scope.projects = appFact.projects;
     $scope.closeProj = function(project){
       if($scope.accountType == 'Client'){
-        $http.post('/closeProj', {id: project.id});
         project.isActive = false;
+        appFact.userData.pointsEarned += 50;
+        console.log(appFact.userData);
+        $http.post('/closeProj', {id: project.id});
+        $http.post('/createUser', appFact.userData)
       }
     };
 }]);

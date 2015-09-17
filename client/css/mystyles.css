@@ -4,8 +4,9 @@ html {
     overflow-x:hidden;
 }
 #mainScrollable{
-    height: 640px;
-    float: left;
+    /*height: 640px;*/
+    height: 960px;
+    float: center;
     overflow: auto;
     overflow-x:hidden;
 }

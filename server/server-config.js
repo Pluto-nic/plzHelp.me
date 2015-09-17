@@ -124,7 +124,8 @@ app.post('/createUser', function(req, res){
     gravatar: req.body.gravatar,
     user_id: req.body.user_id,
     phone: req.body.phone,
-    requestSMS: req.body.smsOption
+    requestSMS: req.body.smsOption,
+    pointsEarned: req.body.pointsEarned
   };
   serverUtils.createInstance(req, res, Client, attributes, function(){
     if(req.body.smsOption){ 

@@ -8,7 +8,6 @@ angular.module('app')
       $http.post('/providerAcceptProj', 
         {ServiceProviderUserId: appFact.userData.user_id, id: proj.id});
     };
-
     if(appFact.category === 'Client'){
       $http.post('/clientAllProj', appFact.profile)
         .then(function(response){
@@ -31,6 +30,7 @@ angular.module('app')
           appFact.projects = response.data;
           $scope.profile = appFact.profile;
           $scope.userData = appFact.userData;
+          $scope.userData.pointsEarned = appFact.userData.pointsEarned || 650;
           $state.go('index.list.overview');
         });
 
@@ -72,8 +72,8 @@ angular.module('app')
             position: 'right'
         },
         {
-            element: '#step3',
-            intro: 'Project history will be updated here',
+            element: '.step3',
+            intro: 'Recent project history will be shown below here',
             position: 'top'
         },
         {

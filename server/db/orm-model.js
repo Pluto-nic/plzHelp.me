@@ -44,7 +44,8 @@ module.exports = function(){
     },
     gravatar: Sequelize.STRING,
     requestSMS: Sequelize.BOOLEAN,
-    verificationCode: Sequelize.STRING
+    verificationCode: Sequelize.STRING,
+    pointsEarned: Sequelize.INTEGER
   });
 
   var Project = db.define('Project', {

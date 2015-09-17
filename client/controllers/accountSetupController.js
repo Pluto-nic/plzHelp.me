@@ -17,11 +17,13 @@ angular.module('app')
       userData.user_id   = appFact.profile.user_id;
       userData.gravatar  = appFact.profile.picture;
       userData.verificationCode = '';
+      userData.pointsEarned = 350;
       appFact.userData   = userData;
       if($scope.smsOption){
         $http.post('/createUser', userData)
          .then(function(response){
-            $state.go('verify')
+           $state.go('index.list.overview');
+            // $state.go('verify');
          });
       }else{
        $http.post('/createUser', userData)
@@ -47,7 +49,8 @@ angular.module('app')
       if($scope.smsOption){
         $http.post('/createServiceProvider', userData)
          .then(function(response){
-            $state.go('verify')
+           $state.go('index.list.overview');
+            // $state.go('verify');
          });
       }else{
        $http.post('/createServiceProvider', userData)
