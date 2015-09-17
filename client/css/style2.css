@@ -582,7 +582,8 @@ a.contact_btn:hover{
 
 
 .c-logo-part{
-	background: url(../img/black.jpg) no-repeat center top;
+	background: url(../img/black.jpg) center top;
+	width: 100%;
 	padding: 60px;
 	margin-top: 60px;
     filter: alpha(opacity=60);
