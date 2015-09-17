@@ -1,4 +1,4 @@
-<div class="global-wrap" id="mainScrollable">
+<div class="global-wrap" >
   <h2 class="page-title">Account Settings</h2>
   <div class="container">
     <div class="row">
@@ -12,7 +12,7 @@
           <input id="provider" type="radio" name="accountType" ng-model="accountType" value="ServiceProvider">
         </form>
         <div class="wrapper">
-          <div ng-show="accountType == 'Client'">
+          <div ng-show="accountType == 'Client'" class='animated fadeInUpBig'>
             <div class="row">
               <div class="col-md-9">
                 <div>
@@ -61,7 +61,7 @@
             </div>
           </div>
         </div>
-        <div ng-show="accountType == 'ServiceProvider'">
+        <div ng-show="accountType == 'ServiceProvider'" class='animated fadeInUpBig'>
           <div class="row">
             <div class="col-md-9">
               <div>

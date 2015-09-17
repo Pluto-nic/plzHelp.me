@@ -1,6 +1,6 @@
 <div class="user-profile-avatar text-center">
   <div class="gap"></div>
-  <img src={{userData.gravatar}} alt="Image Alternative text" title="AMaze" />
+  <img src={{userData.gravatar}} alt="Image Alternative text" title="AMaze" ng-click="CallMe()"/>
   <h5>{{userData.firstName}} {{userData.lastName}}</h5>
   <p>Member Since May 2012</p>
 </div>
@@ -9,7 +9,6 @@
   <li ng-repeat="item in Model.items">
     <a ui-sref="index.list.{{item.state}}"><i class="fa {{item.logo}}"></i>{{item.title}}</a>
   </li>
-
   <li class="text-white">
     <div class="circle c80"><span><h4>80%</h4><h5>Profile Completed</h5></span></div>
   </li>
