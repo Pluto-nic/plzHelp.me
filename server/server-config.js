@@ -9,7 +9,6 @@ var ServiceProvider = models.ServiceProvider;
 var Client = models.Client;
 var Project = models.Project;
 var sequelize = require('./db/database.js');
-// var twilio = require('twilio')('ACbca33e0a07cd5c8e6b58f0dc193690b2', '99790a8d9ca408e614041e8b4d068e94');
 var twilio = require('twilio')('AC59a7345491fadaa27a3e420d9bea4192', '7a20fe1bf4514a07d2e6d96a11980f27');
 var http = require('http');
 
