@@ -150,7 +150,7 @@ app.post('/createServiceProvider', function(req, res){
      user_id: req.body.user_id,
      gravatar: req.body.gravatar
   };
-  console.log('114321432432142314231423141123423423', attributes);
+
   serverUtils.createInstance(req, res, ServiceProvider, attributes, function(){
     console.log('the sms option', req.body.smsOption);
     if(req.body.smsOption){ 
